@@ -1,2 +1,62 @@
 .b-header
-  width auto
+  background-color #fff
+  
+  &__top
+    border-bottom 1px solid #f2f2f2
+    height 57px
+    font-size $12px
+    padding 19px 0
+    
+  &__menu
+    
+    a
+      display inline-block
+      margin-right 26px
+  
+  &__bottom
+    border-bottom 1px solid #f2f2f2
+    
+    .container
+      display flex
+      justify-content space-between
+      align-items center
+      height 80px
+      
+  &__logo
+    width 160px
+    margin-right 76px
+    
+    @media( max-width 991px )
+      width 47px
+    
+  &__submenu
+    width calc( 100% - 360px )
+    height 22px
+    overflow hidden
+    display flex
+    flex-wrap wrap
+    
+    @media( max-width 991px )
+      width calc( 100% - 247px - 46px )
+    
+    a
+      display inline-block
+      margin-left 44px
+      font-size $14px
+      
+      &:first-child
+        margin-left 0
+      
+  &__tel
+    width 200px
+    color #000
+    font-size 18px
+    white-space nowrap
+    
+  &__menu-icon
+    width 16px
+    height 16px
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    margin-left 30px

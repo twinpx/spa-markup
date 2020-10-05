@@ -1,2 +1,31 @@
 header.b-header
-  .container
+
+  .b-header__top
+    .container
+    
+      .row
+      
+        .col
+          .b-header__menu
+            a( href="/pages/about/" ) О компании
+            a( href="/pages/contacts/" ) Контакты
+            a( href="/pages/docs/" ) Документы
+            
+        .col.text-right
+          a( href="" ) Заказать обратный звонок
+    
+  .b-header__bottom
+    .container
+    
+      a.b-header__logo( href="" )
+        img( src="logo.svg" width="160" height="39" alt="Стройпромавтоматика" )
+        
+      .b-header__submenu.d-none.d-md-block.d-lg-block.d-xl-bock
+        a( href="/pages/projects/" ) Проекты
+        a( href="/pages/choice/" ) Выбрать квартиру
+        a( href="/pages/commercial/" ) Коммерческие помещения
+        a( href="/pages/hypothec/" ) Ипотека
+        
+      a.b-header__tel.text-right( href="tel:+74951060002" ) +7 (495) 106-00-02
+      
+      a.b-header__menu-icon.d-lg-none( href="" style="background-image: url( '/template/images/menu.svg' );" )
