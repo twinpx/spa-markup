@@ -1,7 +1,7 @@
 block vars
   - var page = 'main'
   - var authorized = 'true'
-
+      
 doctype html
 html
   head
@@ -9,6 +9,9 @@ html
       title spa
       
     include includes/meta
+
+    block placeholder-styles
+      link( href="/template/placeholders/main.css" rel="stylesheet" )
     
   body
   
@@ -17,7 +20,7 @@ html
     include includes/header
     
     block content
-      .container
+      .container-lgs
         h1 spa
     
     include includes/footer

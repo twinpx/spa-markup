@@ -1,5 +1,27 @@
 .b-header
+  height 137px
   background-color #fff
+  
+  @media( max-width 576px )
+    height 80px
+  
+  &-fixed-wrapper
+    background-color #fff
+    opacity 1
+    
+    @media( max-width 576px )
+      position fixed
+      top 0
+      left 0
+      width 100%
+      z-index 1000
+  
+    .header-fixed &
+      position fixed
+      top -57px
+      left 0
+      width 100%
+      z-index 1000
   
   &__top
     border-bottom 1px solid #f2f2f2
@@ -16,28 +38,46 @@
   &__bottom
     border-bottom 1px solid #f2f2f2
     
-    .container
+    .container-lg
       display flex
       justify-content space-between
       align-items center
       height 80px
+      transition( height .5s ease )
+      
+      .header-fixed &
+        height 70px
       
   &__logo
     width 160px
     margin-right 76px
+    transition( width .5s ease )
     
-    @media( max-width 991px )
+    @media( max-width 576px )
+      width calc( 100% - 246px - 76px )
+      
+    .header-fixed &
       width 47px
+      
+      img.d-sm-inline-block
+        display none !important
+      
+      img.d-sm-none
+        display inline-block !important
     
   &__submenu
-    width calc( 100% - 360px )
+    width calc( 100% - 200px - 76px - 160px )
     height 22px
     overflow hidden
     display flex
     flex-wrap wrap
+    transition( width .5s ease )
     
     @media( max-width 991px )
-      width calc( 100% - 247px - 46px )
+      width calc( 100% - 200px - (76px + 160px) - (16px + 30px))
+      
+    .header-fixed &
+      width calc( 100% - 200px - 76px - 47px )
     
     a
       display inline-block
@@ -46,6 +86,15 @@
       
       &:first-child
         margin-left 0
+        
+      .header-fixed &
+        font-size $12px
+        
+      &.fixed-visible
+        display none
+        
+        .header-fixed &
+          display inline-block
       
   &__tel
     width 200px
@@ -60,3 +109,29 @@
     background-position center
     background-size cover
     margin-left 30px
+    
+  &__dropdown
+    position relative
+    
+    &-wrapper
+      display none
+      position absolute
+      top 0
+      left 0
+      width 100%
+      font-size $14px
+      padding-top 35px
+      padding-bottom 35px
+      background-color #fff
+      border-bottom 1px solid #f2f2f2
+      z-index 1000
+    
+    b
+      margin-bottom 15px
+      
+    a
+      margin-bottom 5px
+    
+    b,
+    a
+      display block

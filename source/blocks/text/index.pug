@@ -1,11 +1,18 @@
 extends ../../layouts/main
 
+block placeholder-styles
+  link( href="/template/placeholders/blocks-text.css" rel="stylesheet" )
+
+block vars
+  - var page = 'blocks-text'
+  - var authorized = 'true'
+  
 block title
   title Blocks | Text | SPA
 
 block content
 
-  .container
+  .container-lg
   
     h1 О компании
     

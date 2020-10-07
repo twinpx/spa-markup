@@ -1,31 +1,64 @@
-header.b-header
+header.b-header.ph-block
 
-  .b-header__top
-    .container
-    
-      .row
+  .b-header-fixed-wrapper
+
+    .b-header__top.d-none.d-sm-block
+      .container-lg
       
-        .col
-          .b-header__menu
-            a( href="/pages/about/" ) О компании
-            a( href="/pages/contacts/" ) Контакты
-            a( href="/pages/docs/" ) Документы
-            
-        .col.text-right
-          a( href="" ) Заказать обратный звонок
-    
-  .b-header__bottom
-    .container
-    
-      a.b-header__logo( href="" )
-        img( src="logo.svg" width="160" height="39" alt="Стройпромавтоматика" )
+        .row
         
-      .b-header__submenu.d-none.d-md-block.d-lg-block.d-xl-bock
-        a( href="/pages/projects/" ) Проекты
-        a( href="/pages/choice/" ) Выбрать квартиру
-        a( href="/pages/commercial/" ) Коммерческие помещения
-        a( href="/pages/hypothec/" ) Ипотека
-        
-      a.b-header__tel.text-right( href="tel:+74951060002" ) +7 (495) 106-00-02
+          .col-7
+            .b-header__menu
+              a( href="/pages/about/" ) О компании
+              a( href="/pages/contacts/" ) Контакты
+              a( href="/pages/docs/" ) Документы
+              
+          .col-5.text-right
+            a( href="" ) Заказать обратный звонок
       
-      a.b-header__menu-icon.d-lg-none( href="" style="background-image: url( '/template/images/menu.svg' );" )
+    .b-header__bottom
+      .container-lg
+      
+        a.b-header__logo( href="" )
+          img.d-none.d-sm-inline-block( src="/template/images/spa-logo.svg" width="160" height="39" alt="Стройпромавтоматика" )
+          img.d-inline-block.d-sm-none( src="/template/images/spa-s-logo.svg" width="47" height="39" alt="Стройпромавтоматика" )
+          
+        .b-header__submenu.d-none.d-sm-block
+          a( href="/pages/projects/" ) Проекты  
+          a( href="/pages/choice/" ) Выбрать квартиру
+          a( href="/pages/commercial/" ) Коммерческие помещения
+          a( href="/pages/hypothec/" ) Ипотека
+          a.fixed-visible( href="/pages/about/" ) О компании
+          a.fixed-visible( href="/pages/contacts/" ) Контакты
+          a.fixed-visible( href="/pages/docs/" ) Документы
+          
+        a.b-header__tel.text-right( href="tel:+74951060002" ) +7 (495) 106-00-02
+        
+        a.b-header__menu-icon.d-lg-none( href="" style="background-image: url( '/template/images/menu.svg' );" )
+        
+    .b-header__dropdown
+      .b-header__dropdown-wrapper
+        .container-lg
+          .row
+            .col-12.col-sm-4
+              b Проекты
+              a( href="" ) ЖК «Восточный»
+              a( href="" ) ЖК «Некрасовский»
+              a( href="" ) ЖК «Радужный»
+              a( href="" ) ЖК «Лермонтовский»
+              a( href="" ) ЖК «Малиновый ручей»
+              a( href="" ) Мкр. Ракитня
+              
+            hr.d-block.d-sm-none.w-100
+              
+            .col-12.col-sm-4
+              b О компании
+              a( href="" ) Контакты
+              a( href="" ) Политика конфиденциальности
+              
+            hr.d-block.d-sm-none.w-100
+              
+            .col-12.col-sm-4
+              b Покупателю
+              a( href="" ) Ипотека
+              a( href="" ) Документы
