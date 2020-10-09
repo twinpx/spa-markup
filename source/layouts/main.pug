@@ -31,10 +31,9 @@ html
     include includes/scripts
     
     //- include styles and scripts for all page's components
-    block components-array
     
-      if componentsArray
-        each componentName in componentsArray
-          link( rel="stylesheet", href="/components/#{componentName}/style.css" )
-          script( src="/components/#{componentName}/script.js" )
+    if componentsArray
+      each componentName in componentsArray
+        link( rel="stylesheet", href="/components/#{componentName}/style.css" )
+        script( src="/components/#{componentName}/script.js" )
 

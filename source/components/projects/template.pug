@@ -1,0 +1,24 @@
+// start /components/projects/
+
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'projects'
+else
+  - var componentsArray = [ 'projects' ]
+  
+link( rel="stylesheet", href="/components/projects/style.css" )
+script( src="/components/projects/script.js" )
+  
+.b-projects
+
+  .b-projects__item
+    a.b-projects__img( style="/upload/projects/1.jpg" )
+    .row
+      .col Жилой квартал
+      .col Звенигород, мкр-н Восточный № 2,3
+    .row
+      .col
+        b Восточный
+      .col От 10 млн. руб
+
+// end /components/projects/
