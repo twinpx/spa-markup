@@ -19,14 +19,69 @@
         z-index -1
     
 .b-projects
+  line-height 18px
+
+  @media( min-width 1200px )
+    line-height 1.2
   
   &__img
-    background()
+    background-bg()
     display block
     padding-top 68%
     border-radius 7px
     margin-bottom 20px
+    position relative
+    /*transition( transform 2s ease )
+    
+    &:hover
+      transform( scale(1.4))*/
+    
+  .b-badges
+    position absolute
+    top 25px
+    left 25px
+    
+    @media( min-width 576px ) and ( max-width 991px )
+      top 10px
+      left 10px
+      
+    &--bottom
+      top auto
+      bottom 25px
+    
+      @media( min-width 576px ) and ( max-width 991px )
+        bottom 10px
+    
+  .b-badge
+    display inline-block
+    background #fff
+    border-radius 3px
+    line-height 33px
+    color $brand-color
+    font-size $12px
+    padding 0 10px
+    margin 0 10px 6px 0
+    white-space nowrap
+    text-align center
+    
+    @media( min-width 576px ) and ( max-width 991px )
+      line-height 23px
+      margin 0 6px 6px 0
+      
+    &.b-badge--sold
+      background #ed2e2e
+      color #fff
+      width 106px
+      margin-bottom 0
+      margin-top 6px
     
   .row
     font-size $12px
     margin-bottom 4px
+    align-items baseline
+    
+    @media( max-width 1199px )
+      margin-bottom 0
+    
+  b
+    font-size $18px

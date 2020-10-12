@@ -6,19 +6,144 @@ if componentsArray
 else
   - var componentsArray = [ 'projects' ]
   
-link( rel="stylesheet", href="/components/projects/style.css" )
-script( src="/components/projects/script.js" )
-  
 .b-projects
+    
+  .container-lg.b-projects__block
 
-  .b-projects__item
-    a.b-projects__img( style="/upload/projects/1.jpg" )
-    .row
-      .col Жилой квартал
-      .col Звенигород, мкр-н Восточный № 2,3
-    .row
-      .col
-        b Восточный
-      .col От 10 млн. руб
+    h2 В продаже
+    
+    hr
 
+    .row
+
+      .col-12.col-sm-4
+        .b-projects__item
+          a.b-projects__img( href="/pages/projects-detail/" style="background-image: url('/upload/projects/1.jpg');" )
+            span.b-badges
+              span.b-badge Дом сдан
+              span.b-badge Ипотека 3%
+              span.b-badge Детская площадка
+              span.b-badge Красивый двор
+          .row
+            .col-xl Жилой квартал
+            .col-xl-auto Звенигород, мкр-н Восточный № 2,3
+          .row
+            .col-xl
+              b Восточный
+            .col-xl-auto От 10 млн. руб
+            
+      hr.d-block.d-sm-none.w-100
+
+      .col-12.col-sm-4
+        .b-projects__item
+          a.b-projects__img( href="/pages/projects-detail/" style="background-image: url('/upload/projects/2.jpg');" )
+          .row
+            .col-xl Жилой квартал
+            .col-xl-auto Ул. Ленинская слобода, дом 19, этаж 4
+          .row
+            .col-xl
+              b Радужный
+            .col-xl-auto От 3,5 млн. руб
+            
+      hr.d-block.d-sm-none.w-100
+
+      .col-12.col-sm-4
+        .b-projects__item
+          a.b-projects__img( href="/pages/projects-detail/" style="background-image: url('/upload/projects/3.jpg');" )
+          .row
+            .col-xl Жилой квартал
+            .col-xl-auto Ул. Некрасова дом 27/8
+          .row
+            .col-xl
+              b Некрасовский
+            .col-xl-auto От 7 млн. руб
+            
+    hr
+
+    .row
+
+      .col-12.col-sm-4
+        .b-projects__item
+          a.b-projects__img( href="/pages/projects-detail/" style="background-image: url('/upload/projects/4.jpg');" )
+          .row
+            .col-xl Жилой квартал
+            .col-xl-auto Нахабинское шоссе, д.1, кк 1,2,3
+          .row
+            .col-xl
+              b Лермонтовский
+            .col-xl-auto От 10 млн. руб
+            
+      hr.d-block.d-sm-none.w-100
+
+      .col-12.col-sm-4
+        .b-projects__item
+          a.b-projects__img( href="/pages/projects-detail/" style="background-image: url('/upload/projects/5.jpg');" )
+          .row
+            .col-xl Жилой квартал
+            .col-xl-auto Ул. Фрунзе, д.29
+          .row
+            .col-xl
+              b Малиновый ручей
+            .col-xl-auto От 3,5 млн. руб
+            
+      hr.d-block.d-sm-none.w-100
+
+      .col-12.col-sm-4
+        .b-projects__item
+          a.b-projects__img( href="/pages/projects-detail/" style="background-image: url('/upload/projects/6.jpg');" )
+          .row
+            .col-xl Жилой квартал
+            .col-xl-auto Проезд Ветеранов, д.10, кк. 1,2,3,4
+          .row
+            .col-xl
+              b Ракитня
+            .col-xl-auto От 7 млн. руб
+            
+  hr.hr--xl.hr--line
+    
+  .container-lg.b-projects__block
+
+    h2 Проданные проекты
+
+    .row
+
+      .col-12.col-sm-4
+        .b-projects__item
+          a.b-projects__img( href="/pages/projects-detail/" style="background-image: url('/upload/projects/1.jpg');" )
+            span.b-badges.b-badges--bottom
+              span.b-badge.b-badge--sold Продано
+          .row
+            .col-xl Жилой квартал
+            .col-xl-auto Звенигород, мкр-н Восточный № 2,3
+          .row
+            .col-xl
+              b Восточный
+            .col-xl-auto От 10 млн. руб
+            
+      hr.d-block.d-sm-none.w-100
+
+      .col-12.col-sm-4
+        .b-projects__item
+          a.b-projects__img( href="/pages/projects-detail/" style="background-image: url('/upload/projects/2.jpg');" )
+          .row
+            .col-xl Жилой квартал
+            .col-xl-auto Ул. Ленинская слобода, дом 19, этаж 4
+          .row
+            .col-xl
+              b Радужный
+            .col-xl-auto От 3,5 млн. руб
+            
+      hr.d-block.d-sm-none.w-100
+
+      .col-12.col-sm-4
+        .b-projects__item
+          a.b-projects__img( href="/pages/projects-detail/" style="background-image: url('/upload/projects/3.jpg');" )
+          .row
+            .col-xl Жилой квартал
+            .col-xl-auto Ул. Некрасова дом 27/8
+          .row
+            .col-xl
+              b Некрасовский
+            .col-xl-auto От 7 млн. руб
+            
 // end /components/projects/

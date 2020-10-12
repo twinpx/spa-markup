@@ -34,6 +34,16 @@ h1
   font-size $32px
   margin 1.3rem 0
   
+h2
+  font-weight $bold
+  font-size $18px
+  margin 1.3rem 0
+  
+h1, h2, h3, h4, h5, h6
+  
+  &:first-child
+    margin-top 0
+  
 .b-lead
   font-weight $light
   font-size $24px
@@ -68,6 +78,10 @@ hr
   &.hr--xl
     margin-top 2rem
     margin-bottom 2rem
+  
+  &.hr--xxl
+    margin-top 3rem
+    margin-bottom 3rem
     
   &.hr--line
     border-top 1px solid #eee

@@ -11,7 +11,7 @@ html
     include includes/meta
 
     block placeholder-styles
-      link( href="/template/placeholders/main.css" rel="stylesheet" )
+      link( href="/template/placeholders/" + page + ".css" rel="stylesheet" )
     
   body
   
@@ -34,6 +34,6 @@ html
     
     if componentsArray
       each componentName in componentsArray
-        link( rel="stylesheet", href="/components/#{componentName}/style.css" )
-        script( src="/components/#{componentName}/script.js" )
+        link( rel="stylesheet", href="/components/" + componentName + "/style.css" )
+        script( src="/components/" + componentName + "/script.js" )
 
