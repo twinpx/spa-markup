@@ -1,0 +1,56 @@
+.b-projects    
+
+  &.ph-block
+    position relative
+  
+  .ph
+    padding-top 59px
+  
+    @media( min-width 576px )
+      display flex
+      justify-content space-between
+      
+      &__row
+        display flex
+        justify-content space-between
+        align-items flex-start
+        margin-bottom 48px
+        
+    &__item
+    
+      @media( min-width 576px )
+        width calc( (100% - 30px * 2) / 3 )
+      
+      div
+        background-color $placeholder-color
+      
+      div:nth-child(1)
+        padding-top 68%
+        border-radius 7px
+        margin-bottom 24px
+        
+      div:nth-child(2)
+        height 7px
+        margin-bottom 10px
+        
+      div:nth-child(3)
+        height 7px
+        width 70%
+        
+    &__item,
+    &__row
+    
+      @media( max-width 575px )
+        display none
+        
+        &:nth-child(1)
+          display block
+        
+    &-content
+      position absolute
+      top 0
+      left 0
+      width 100%
+      transition( opacity .5s ease )
+      opacity 0
+      z-index 0

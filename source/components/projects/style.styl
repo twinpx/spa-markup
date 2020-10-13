@@ -2,21 +2,24 @@
 
 .b-projects
 
-  &.b-ph-block
+  &.ph-block
     
-    &.i-ph-animated
+    &.ph-block--animated
       
-      .b-ph-content
+      .ph-content
         position static
         width auto
         opacity 1
         
-      .b-ph
+      .ph
         position absolute
         top 0
         left 0
         opacity 0
         z-index -1
+        
+#projectsYmap
+  height 633px
     
 .b-projects
   line-height 18px
@@ -25,16 +28,18 @@
     line-height 1.2
   
   &__img
-    background-bg()
+    background-repeat no-repeat
+    background-position center
+    background-size 100%
     display block
     padding-top 68%
     border-radius 7px
     margin-bottom 20px
     position relative
-    /*transition( transform 2s ease )
+    transition( all 1s ease )
     
     &:hover
-      transform( scale(1.4))*/
+      background-size 110%
     
   .b-badges
     position absolute
@@ -85,3 +90,25 @@
     
   b
     font-size $18px
+    
+  &__row
+  
+    @media( min-width 576px )
+      opacity 0
+      transform( translateY( 50px ))
+      transition( all .5s ease )
+      
+      &.b-projects__row--shown
+        opacity 1
+        transform( translateY(0))
+    
+  &__item
+  
+    @media( max-width 575px )
+      opacity 0
+      transform( translateY( 50px ))
+      transition( all .5s ease )
+      
+      &.b-projects__item--shown
+        opacity 1
+        transform( translateY(0))
