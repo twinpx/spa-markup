@@ -3,7 +3,6 @@ setTimeout( function() {
   $( '.ph-block, h1' ).addClass( 'ph-block--animated' );
 }, 500 );
 
-
 //header dropdown
 document.querySelector( '.b-header__menu-icon' ).addEventListener( 'click', function(e) {
   e.preventDefault();
