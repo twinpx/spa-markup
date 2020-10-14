@@ -1,0 +1,24 @@
+.b-projects    
+
+  &.ph-block
+    position relative
+  
+  .ph
+        
+    &__item,
+    &__row
+    
+      @media( max-width 575px )
+        display none
+        
+        &:nth-child(1)
+          display block
+        
+    &-content
+      position absolute
+      top 0
+      left 0
+      width 100%
+      transition( opacity .5s ease )
+      opacity 0
+      z-index 0

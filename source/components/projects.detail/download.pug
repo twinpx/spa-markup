@@ -1,0 +1,19 @@
+extends ../../layouts/main
+
+block vars
+  - var page = 'page-projects-detail'
+  - var authorized = 'true'
+
+block title
+  title Projects detail | spa
+
+block content
+
+  hr.hr--lg
+
+  .container-lg
+    h1 Проекты
+    
+  hr.hr--lg
+  
+  include ../../components/projects.detail/template

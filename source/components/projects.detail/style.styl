@@ -1,0 +1,85 @@
+@import '../../styl/component-include.styl'
+
+.b-projects-detail
+
+  &.ph-block
+    
+    &.ph-block--animated
+      
+      .ph-content
+        position static
+        width auto
+        opacity 1
+        
+      .ph
+        position absolute
+        top 0
+        left 0
+        opacity 0
+        z-index -1
+    
+.b-projects-detail
+  text-align center
+  
+.b-flat-card
+  border 1px solid #e8e8e8
+  padding 30px
+  height 100%
+  transition( border-color .3s ease )
+  cursor pointer
+  
+  &:hover
+    border-color #eabeb4
+
+  &__img
+    display block
+    padding-top 100%
+    background-repeat no-repeat
+    background-position center
+    background-size contain
+    
+  &__title
+    margin-bottom 5px
+    
+  &__project
+    font-size $14px
+    margin-bottom 5px
+    
+    a
+      color #610618
+      
+      &:hover,
+      &:active,
+      &:focus
+        color #610618
+    
+  &__info
+    font-size 11px
+    margin-bottom 15px
+    color #707070
+    
+    span
+      display inline-block
+      margin-right 20px
+    
+      span
+        font-size $14px
+      
+      &:last-child
+        margin-right 0
+      
+  &__price
+    font-weight $bold
+    white-space nowrap
+    
+    span
+      display block
+      color $brand-color
+      white-space nowrap
+      
+    s
+      display block
+      font-size $12px
+      font-weight $normal
+      color #707070
+      white-space nowrap

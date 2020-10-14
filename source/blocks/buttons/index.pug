@@ -1,0 +1,38 @@
+extends ../../layouts/main
+
+block vars
+  - var page = 'blocks-buttons'
+  - var authorized = 'true'
+  
+block title
+  title Blocks | Buttons | SPA
+
+block content
+
+  .container-lg
+  
+    .row
+      
+      .col
+  
+        button.btn.btn-primary Подобрать
+        
+        hr
+        
+        button.btn.btn-light Еще
+        
+        hr
+        
+        button.btn.btn-outline-primary Записаться на просмотр
+        
+      .col
+  
+        a.btn.btn-primary( href="" ) Подобрать
+        
+        hr
+        
+        a.btn.btn-light( href="" ) Еще
+        
+        hr
+        
+        a.btn.btn-outline-primary( href="" ) Записаться на просмотр

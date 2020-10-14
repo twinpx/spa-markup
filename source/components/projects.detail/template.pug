@@ -1,0 +1,30 @@
+// start /components/projects.detail/
+
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'projects.detail'
+else
+  - var componentsArray = [ 'projects.detail' ]
+
+.b-projects-detal
+
+  .container-lg
+  
+    .b-load
+    
+      .b-load__item
+
+        .row
+        
+          include ./row
+          
+        hr
+          
+        .b-load__button-block.text-center
+          
+          hr
+          
+          button.btn.btn-light.b-load__button( data-url="/components/projects.detail/download.html?page=2" ) Еще
+          
+
+// end /components/projects.detail/

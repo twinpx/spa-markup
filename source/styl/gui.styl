@@ -14,13 +14,13 @@ body
     max-width 1370px
   
 a
-  color #707070
+  color $brand-color
   transition( opacity .3s ease )
   
   &:hover,
   &:active,
   &:focus
-    color #707070
+    color $brand-color
     text-decoration none
     opacity .7
   
@@ -85,4 +85,96 @@ hr
     
   &.hr--line
     border-top 1px solid #eee
+    
+.btn
+  font-size $14px
+  line-height 50px
+  height 50px
+  border-radius 25px
+  padding-top 0
+  padding-bottom 0
+  min-width 240px
+  transition( opacity .5s ease )
+    
+  &:hover
+    opacity .7
+  
+  &-primary
+    
+    &,
+    &:hover,
+    &.focus,
+    &:focus,
+    &.disabled,
+    &:disabled
+      background-color $brand-color
+      border-color $brand-color
+      
+    &.focus,
+    &:focus
+      box-shadow none
+
+    &:not(:disabled):not(.disabled)
+
+      &.active,
+      &:active
+        background-color $brand-color
+        border-color $brand-color
+
+        &:focus
+          box-shadow none
+  
+  &-light
+    
+    &,
+    &:hover,
+    &.focus,
+    &:focus,
+    &.disabled,
+    &:disabled
+      color #707070
+      background-color #f4f4f4
+      border-color #f4f4f4
+      
+    &.focus,
+    &:focus
+      box-shadow none
+
+    &:not(:disabled):not(.disabled)
+
+      &.active,
+      &:active
+        color #707070
+        background-color #f4f4f4
+        border-color #f4f4f4
+
+        &:focus
+          box-shadow none
+  
+  &-outline-primary
+    
+    &,
+    &:hover,
+    &.focus,
+    &:focus,
+    &.disabled,
+    &:disabled
+      color $brand-color
+      background-color #fff
+      border-color $brand-color
+      
+    &.focus,
+    &:focus
+      box-shadow none
+
+    &:not(:disabled):not(.disabled)
+
+      &.active,
+      &:active
+        color #fff
+        background-color $brand-color
+        border-color $brand-color
+
+        &:focus
+          box-shadow none
     
