@@ -4,9 +4,13 @@ setTimeout( function() {
 }, 500 );
 
 //header dropdown
+var headerDropdownId;
 document.querySelector( '.b-header__menu-icon' ).addEventListener( 'click', function(e) {
   e.preventDefault();
-  $( '.b-header__dropdown-wrapper' ).slideToggle();
+  clearTimeout( headerDropdownId );
+  headerDropdownId = setTimeout( function() {
+    $( '.b-header__dropdown-wrapper' ).slideToggle();
+  }, 100);
   return false;
 });
 

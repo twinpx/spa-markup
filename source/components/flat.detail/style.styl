@@ -1,0 +1,120 @@
+@import '../../styl/component-include.styl'
+
+.b-flat-detail
+
+  &.ph-block
+    
+    &.ph-block--animated
+      
+      .ph-content
+        position static
+        width auto
+        opacity 1
+        
+      .ph
+        position absolute
+        top 0
+        left 0
+        opacity 0
+        z-index -1
+    
+.b-flat-detail
+
+  &__body
+    border 1px solid #e5e5e5
+    padding 50px 30px 30px
+    
+    @media( min-width 768px )
+      [ class^=col ]:first-child
+        border-right 1px solid #e5e5e5
+      
+      [ class^=col ]:nth-child(2)
+        padding-left 50px
+      
+  &__img
+    background-repeat no-repeat
+    background-position center
+    background-size contain
+    padding-top 100%
+    margin 0 auto
+    
+  .swiper-container[ data-tab ]:nth-of-type(2)
+    display none
+    
+  &__galleries-switch
+    text-align center
+    
+    a
+      display inline-block
+      margin 0 17px
+      font-size $14px
+      
+      &.active
+        pointer-events none
+        cursor default
+        
+        &,
+        &:hover,
+        &:active,
+        &:focus
+          color #707070
+      
+  &__info
+    font-size $14px
+    line-height 24px
+    color #707070
+    
+    a,
+    span
+      display inline-block
+      margin-left 5px
+      
+  &__price
+    font-size $32px
+    color #000
+    
+  &__buttons
+    
+    .btn
+      margin 0 10px 10px
+      
+      &:first-child
+        min-width 190px
+        
+  &__hypothec
+    display flex
+    font-size $14px
+    color #707070
+    
+    &-icon
+      width 24px
+      height 24px
+      margin-right 15px
+      background-bg()
+    
+  &__print-block
+    display flex
+    justify-content space-between
+    align-items flex-start
+    
+  &__print
+    font-size $11px
+    display flex
+    align-items center
+    margin-right 15px
+    
+    &,
+    &:hover,
+    &:active,
+    &:focus
+      color #707070
+    
+    &-icon
+      width 32px
+      height 32px
+      margin-right 10px
+      background-repeat no-repeat
+      background-position center
+      background-size 20px
+    
+    

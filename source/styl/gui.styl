@@ -178,3 +178,27 @@ hr
         &:focus
           box-shadow none
     
+.swiper-pagination-bullet-active
+  background-color #9a0634
+    
+.swiper-button-next
+  transform( translateX( -50px ))
+    
+.swiper-button-prev
+  transform( translateX( 50px ))
+  
+.swiper-button-next,
+.swiper-button-prev
+  opacity 0
+  transition( all .3s ease )
+  
+  .swiper-container:hover &
+    transform( translateX(0))
+    opacity 1
+  
+  &:after
+    color #9a0634
+    
+  @media( max-width 767px )
+    display none
+  
