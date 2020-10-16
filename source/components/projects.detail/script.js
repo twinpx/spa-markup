@@ -9,7 +9,7 @@
     
     //click
     $( '.b-projects-detal' ).delegate( '.b-flat-card', 'click', function() {
-      window.location = this.querySelector( '.b-flat-card__img' ).getAttribute( 'href' );
+      window.location = this.getAttribute( 'data-href' );
     });
     
     $( '.b-projects-detal' ).delegate( '.b-flat-card__project a', 'click', function(e) {

@@ -1,0 +1,414 @@
+@import '../../styl/component-include.styl'
+
+.i-ph-animated
+
+  .b-prices__ph
+    position absolute
+    top 0
+    left 0
+    width 100%
+    opacity 0
+    z-index -1
+    
+  .b-filter
+    position static
+    width auto
+    opacity 1
+  
+.b-filter
+
+  &__wrapper
+    display flex
+    justify-content space-between
+
+    label
+      font-size $11px
+      margin-bottom 8px
+      display block
+      position relative
+
+      span
+        display inline-block
+        background-color #fff
+        border 1px solid $line-color
+        border-radius 10px
+        line-height 50px
+        min-width 50px
+        height 50px
+        font-size $11px
+        text-align center
+        padding 0 18px
+        transition( all .3s ease )
+        user-select none
+        cursor pointer
+
+        &:hover
+          border-color #eabeb4
+
+    .b-checkbox
+      display inline-block
+      margin-right 6px
+
+      label
+        display inline-block
+
+      [ type="checkbox" ]
+        position absolute
+        opacity 0
+        pointer-events none
+
+        &:checked + span
+          background-color $brand-color
+          border-color $brand-color
+          color #fff
+
+  &__square,
+  &__price
+
+    &-fields
+      width 150px
+      height 50px
+      padding 15px 0
+      background-color $line-color
+      display flex
+      jusrify-content space-around
+
+      input[ type="text" ]
+        border none
+        outline none
+        padding 0 5px
+        height 20px
+        line-height 20px
+        font-size $11px
+        text-align center
+        width 75px
+        background-color transparent
+
+        &:focus
+          border 0
+
+        &:first-child
+          border-right 1px solid #bfbfbf
+          width 74px
+
+    &-range
+      transform( translateY( -1px ))
+
+  &__price
+
+    &-fields
+      width 200px
+
+      input[ type="text" ]
+        width 100px
+
+        &:first-child
+          width 99px
+
+  .ui-widget
+    font-family "Akrobat", "Open Sans Condensed", Arial, sans-serif
+    
+  .ui-widget.ui-widget-content
+    height 1px
+    background-color transparent
+    border-radius 0
+    border none
+    
+  .ui-state-default,
+  .ui-widget-content .ui-state-default,
+  .ui-widget-header .ui-state-default,
+  .ui-button,
+  html .ui-button.ui-state-disabled:hover,
+  html .ui-button.ui-state-disabled:active
+    width 16px
+    height 16px
+    border-radius 8px
+    background-color $brand-color
+    border 0
+    top -8px
+    margin-left -8px
+    
+    &:focus
+      outline none
+    
+  .ui-slider .ui-slider-range
+    background-color $brand-color
+    height 2px
+    
+  .ui-slider-handle
+    
+    span
+      position absolute
+      bottom 30px
+      left 0
+      font-size 8pt
+      font-weight bold
+      width 24px
+      text-align center
+      
+  .ui-state-active,
+  .ui-widget-content .ui-state-active,
+  .ui-widget-header .ui-state-active,
+  a.ui-button:active,
+  .ui-button:active,
+  .ui-button.ui-state-active:hover
+    color #333
+
+  .custom-select
+    height 50px
+    padding 15px 20px
+    font-size $11px
+    font-weight $normal
+    line-height 20px
+    color #333
+    vertical-align middle
+    background $line-color
+    border none
+    border-radius 3px
+    -webkit-appearance none
+    -moz-appearance none
+    appearance none
+
+    &:focus
+      box-shadow none
+
+  &__submit
+    margin-top 24px
+
+.b-filter-result
+
+  &__block
+    display none
+
+.b-flat-card
+  border 1px solid #e8e8e8
+  padding 30px
+  height 100%
+  transition( border-color .3s ease )
+  cursor pointer
+  
+  &:hover
+    border-color #eabeb4
+
+  &__img
+    display block
+    padding-top 100%
+    background-repeat no-repeat
+    background-position center
+    background-size contain
+    
+  &__title
+    margin-bottom 5px
+    
+  &__project
+    font-size $14px
+    margin-bottom 5px
+    
+    a
+      color #610618
+      
+      &:hover,
+      &:active,
+      &:focus
+        color #610618
+    
+  &__info
+    font-size 11px
+    margin-bottom 15px
+    color #707070
+    
+    span
+      display inline-block
+      margin-right 20px
+    
+      span
+        font-size $14px
+      
+      &:last-child
+        margin-right 0
+      
+  &__price
+    font-weight $bold
+    white-space nowrap
+    
+    span
+      display block
+      color $brand-color
+      white-space nowrap
+      
+    s
+      display block
+      font-size $12px
+      font-weight $normal
+      color #707070
+      white-space nowrap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  &-btn
+    height 49px
+    width 100%
+    background-color #f7f7f7
+    position relative
+    cursor pointer
+    display none
+  
+    @media( max-width 600px )
+      display block
+  
+    i
+      background-repeat no-repeat
+      background-position right top
+      width 24px
+      height 24px
+      display block
+      position absolute
+      top 14px
+      right 17px
+    
+    span
+      display none
+      line-height 49px
+      padding-left 12px
+      color #666666
+      
+      &.i-show
+        display inline-block
+
+.b-filter-body
+  background-color #f7f7f7
+  padding 38px 12px
+  //height 540px
+  
+  @media( max-width 600px )
+    display none    
+  
+  label
+    font-size 9pt
+    font-weight bold
+    text-transform uppercase
+    padding-bottom 10px
+    margin-bottom 40px
+    border-bottom 1px solid #c7c7bb
+    display block
+    color #333333
+    word-break break-all
+    padding-right 75px
+    
+    &:last-of-type
+      padding-right 0
+    
+  .ui-widget
+    font-family "Akrobat", "Open Sans Condensed", Arial, sans-serif
+    
+  .ui-widget.ui-widget-content
+    height 7px
+    background-color #f1f1f1
+    box-shadow 0 1px 0 rgba( 153,153,153,.39 ) inset
+    border-radius 0
+    border none
+    
+  .ui-state-default,
+  .ui-widget-content .ui-state-default,
+  .ui-widget-header .ui-state-default,
+  .ui-button,
+  html .ui-button.ui-state-disabled:hover,
+  html .ui-button.ui-state-disabled:active
+    width 24px
+    height 24px
+    border-radius 12px
+    background-color #fff
+    border 3px solid $brand-color-2
+    top -9px
+    margin-left -12px
+    
+    &:focus
+      outline none
+    
+  .ui-slider .ui-slider-range
+    background-color $brand-color-2
+    height 7px
+    
+  .ui-slider-handle
+    
+    span
+      position absolute
+      bottom 30px
+      left 0
+      font-size 8pt
+      font-weight bold
+      width 24px
+      text-align center
+      
+  .ui-state-active,
+  .ui-widget-content .ui-state-active,
+  .ui-widget-header .ui-state-active,
+  a.ui-button:active,
+  .ui-button:active,
+  .ui-button.ui-state-active:hover
+    color #333
+    
+.b-filter
+    
+  &__input
+    text-align right
+    line-height 15px
+    font-size 9pt
+    transform( translateY( 19px ))
+    
+    input[ type="text" ]:not(.browser-default)
+      height 20px
+      line-height 20px
+      font-size 7pt
+      display inline-block
+      width 20px
+      margin 0
+      border none
+      background-color #cabb47dd
+      text-align center
+      color #fff
+      
+      &:focus:not([readonly])
+        border none
+        box-shadow none
+  
+.b-filter-price-value
+  font-size 9pt
+  margin -32px 0 17px
+
+.b-filter-reset
+  font-size 9pt
+  cursor pointer
+  margin-top 50px

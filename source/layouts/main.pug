@@ -29,9 +29,14 @@ html
     include includes/fonts
     include includes/styles
     include includes/scripts
+
+    //- deferred
+    link( rel="stylesheet", href="/template/css/jquery-ui.css" )
+    link( rel="stylesheet", href="/template/css/jquery-ui.theme.min.css" )
+    script( src="/template/js/jquery-ui.js" )
+    script( src="/template/js/jquery.ui.touch-punch.min.js" )
     
     //- include styles and scripts for all page's components
-    
     if componentsArray
       each componentName in componentsArray
         link( rel="stylesheet", href="/components/" + componentName + "/style.css" )
