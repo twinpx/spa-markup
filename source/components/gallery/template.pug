@@ -6,16 +6,32 @@ if componentsArray
 else
   - var componentsArray = [ 'gallery' ]
   
-.b-gallery.ph-block
-
-  .ph
+link( rel="stylesheet", href="/template/css/swiper.min.css" )
+script( src="/template/js/swiper.min.js" )
   
-    .container-lg
-    
-      .ph__row
-
-  .ph-content
+.b-gallery.ph-block
       
-    
-              
+  .swiper-container
+    .swiper-wrapper
+      .swiper-slide
+        .b-gallery__img( style="background-image: url( '/upload/gallery/3.jpg' );" alt="" )
+      .swiper-slide
+        .b-gallery__img( style="background-image: url( '/upload/gallery/4.jpg' );" alt="" )
+      .swiper-slide
+        .b-gallery__img( style="background-image: url( '/upload/gallery/5.jpg' );" alt="" )
+      .swiper-slide
+        .b-gallery__img( style="background-image: url( '/upload/gallery/6.jpg' );" alt="" )
+      .swiper-slide
+        .b-gallery__img( style="background-image: url( '/upload/gallery/7.jpg' );" alt="" )
+    .container-lg
+      .swiper-button-prev( style="background-image: url( '/template/images/arrow-left-gallery.svg' );" )
+      .swiper-button-next( style="background-image: url( '/template/images/arrow-right-gallery.svg' );" )
+    .swiper-pagination
+
+    .b-gallery__content
+      .container-lg
+        .b-gallery__heading Акция: ипотека от 3%<br>ЖК Некрасовкий
+        hr.hr--lg
+        a.btn.btn-primary( href="/pages/projects-detail/" ) Узнать подробнее
+            
 // end /components/projects/

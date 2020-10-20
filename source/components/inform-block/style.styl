@@ -1,0 +1,45 @@
+@import '../../styl/component-include.styl'
+
+.b-inform-block
+
+  &.ph-block
+    
+    &.ph-block--animated
+      height auto
+      overflow visible
+      
+      &:after
+        opacity 0
+        
+.b-inform-block
+  background-color $line-color
+
+  &__container
+    padding 95px 0
+    background-repeat no-repeat
+    background-position 100% center
+    background-size 300px
+    font-size $24px
+    color #000
+
+  &__heading
+    font-size $32px
+    width 40%
+
+  p
+    width 40%
+
+  @media( max-width 575px )
+
+    &__container
+      background-image none !important
+
+    &__heading
+      width 100%
+      font-size $32px
+
+    p
+      width 100%
+      font-size $16px
+
+

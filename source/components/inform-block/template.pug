@@ -1,0 +1,25 @@
+// start /components/inform-block/
+
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'inform-block'
+else
+  - var componentsArray = [ 'inform-block' ]
+  
+.b-inform-block.ph-block
+
+  .container-lg
+  
+    .b-inform-block__container( style="background-image: url( '/template/images/arrow-right-gallery.svg' );" )
+
+      .b-inform-block__heading Ипотека от Сбербанка
+
+      hr.hr--lg
+
+      p Выгодная программа ипотечного кредитования
+
+      hr
+
+      a.btn.btn-sber( href="" ) Отправить заявку
+              
+// end /components/inform-block/

@@ -3,6 +3,12 @@
   'use strict';
   
   $( function() {
+    
+    //lazyload
+    $( '.b-flat-card__img' ).lazyload();
+    
+    //show result
+    $( '.b-filter-result' ).find( '.b-filter-result__block:last' ).slideDown();
 
     //flat click
     $( '.b-filter-result' )
@@ -14,6 +20,7 @@
     });
 
     //submit
+    var moreButtonFlag = false;
     $( '.b-filter form' ).submit( function(e) {
 
       e.preventDefault();
@@ -26,8 +33,13 @@
         dataType: "html",
         data: $form.serialize(),
         success: function( html ) {
-          $( '.b-filter-result' ).append( html ).find( '.b-filter-result__block:last' ).slideDown();
+          if ( moreButtonFlag ) {
+            $( '.b-filter-result' ).append( html ).find( '.b-filter-result__block:last' ).slideDown();
+          } else {
+            $( '.b-filter-result' ).html( html ).find( '.b-filter-result__block:last' ).slideDown();
+          }
           $( '.b-filter-result .b-filter-result__block:last .b-flat-card__img' ).lazyload();
+          moreButtonFlag = false;
         },
         error: function( a, b, c ) {
           if ( window.console ) {
@@ -41,16 +53,19 @@
     });
 
     //more
-    document.querySelector( '.b-filter-result__more' ).addEventListener( 'click', function(e) {
-      e.preventDefault();
+    if ( document.querySelector( '.b-filter-result__more' )) {
+      document.querySelector( '.b-filter-result__more' ).addEventListener( 'click', function(e) {
+        e.preventDefault();
 
-      //increase the page num
-      var page = 1 * document.querySelector( '.b-filter input[ name=page ]' ).value;
-      document.querySelector( '.b-filter input[ name=page ]' ).value = ++page;
+        //increase the page num
+        var page = 1 * document.querySelector( '.b-filter input[ name=page ]' ).value;
+        document.querySelector( '.b-filter input[ name=page ]' ).value = ++page;
 
-      //download
-      document.querySelector( '.b-filter form' ).requestSubmit();
-    });
+        //download
+        moreButtonFlag = true;
+        document.querySelector( '.b-filter form' ).requestSubmit();
+      });
+    }
 
     //sliders
     var $squareRange = $( '.b-filter__square-range' ),

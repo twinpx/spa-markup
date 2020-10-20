@@ -1,22 +1,108 @@
 @import '../../styl/component-include.styl'
 
-.b-projects
+.b-gallery
 
   &.ph-block
     
     &.ph-block--animated
+      height auto
+      overflow visible
       
-      .ph-content
-        position static
-        width auto
-        opacity 1
-        
-      .ph
-        position absolute
-        top 0
-        left 0
+      &:after
         opacity 0
-        width 100%
-        z-index -1
         
 .b-gallery
+
+  .container-lg
+    position relative
+  
+  &__img
+    height 615px
+    background-bg()
+
+  .swiper-button-prev,
+  .swiper-button-next
+    width 64px
+    height 64px
+    background-bg()
+    top auto
+    bottom 40px
+    left 15px
+    opacity 1
+    transition( none )
+    transform( none )
+
+    &:after
+      display none
+
+    &:focus
+      outline none
+
+  .swiper-button-next
+    left 110px
+
+  .swiper-container-horizontal>.swiper-pagination-bullets
+    bottom 62px
+
+  .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet
+    margin 0 5px
+
+  .swiper-pagination-bullet
+    width 10px
+    height 10px
+    opacity .8
+    background-color #fff
+
+    &-active
+      background-color #fff
+      opacity 1
+
+  &__content
+    position absolute
+    top 194px
+    left 0
+    width 100%
+    z-index 10
+
+  &__heading
+    color #fff
+    font-size $48px
+    line-height 1.2
+
+    @media( max-width 575px)
+      font-size $32px
+
+  &__notes
+    display flex
+    flex-wrap wrap
+
+    &-item
+      background-repeat no-repeat
+      background-position calc( 100% - 22px ) center
+      background-size 50px
+      background-color $brand-color
+      color #fff
+      min-width 272px
+      border-radius 10px
+      padding 15px 90px 15px 22px
+      margin 0 25px 10px 0
+
+      b
+        display block
+        font-size $24px
+        line-height 1.2
+
+    @media( max-width 575px)
+      justify-content space-between
+
+      &-item
+        width calc( 50% - 5px )
+        height auto
+        border-radius 5px
+        padding 8px 25px 8px 11px
+        background-position calc( 100% - 11px ) center
+        background-size 25px
+        margin 0 0 10px 0
+
+        b
+          font-size $16px

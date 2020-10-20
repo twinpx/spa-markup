@@ -68,8 +68,8 @@ hr
     margin-bottom .5rem
   
   &.hr--md
-    margin-top 1rem
-    margin-bottom 1rem
+    margin-top .75rem
+    margin-bottom .75rem
   
   &.hr--lg
     margin-top 1.5rem
@@ -177,6 +177,34 @@ hr
 
         &:focus
           box-shadow none
+  
+  &-sber
+    
+    &,
+    &:hover,
+    &.focus,
+    &:focus,
+    &.disabled,
+    &:disabled
+      background-color #2aa72a
+      border-color #2aa72a
+      color #fff
+      
+    &.focus,
+    &:focus
+      box-shadow none
+
+    &:not(:disabled):not(.disabled)
+
+      &.active,
+      &:active
+        background-color #2aa72a
+        border-color #2aa72a
+
+        &:focus
+          box-shadow none
+
+          
     
 .swiper-pagination-bullet-active
   background-color #9a0634
