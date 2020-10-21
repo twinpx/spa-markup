@@ -1,0 +1,152 @@
+// start /components/form.flat/
+
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'form.flat'
+else
+  - var componentsArray = [ 'form.flat' ]
+
+.b-form-flat.ph-block
+
+  .ph
+  
+    .container-lg
+    
+      .ph__h1
+    
+      .ph__wrapper
+      
+        .ph__img
+        .ph__text
+          div
+          div
+          div
+          div
+          div
+
+  .ph-content
+
+    .container-lg
+    
+      h1 Забронировать квартиру
+        
+      hr.hr--lg
+      
+      .b-form-flat__body
+      
+        .row
+          
+          .col-12.col-md-6.d-none.d-md-block
+          
+            link( rel="stylesheet", href="/template/css/swiper.min.css" )
+            script( src="/template/js/swiper.min.js" )
+            
+            .swiper-container( data-tab="plan" )
+              .swiper-wrapper
+                .swiper-slide
+                  .b-form-flat__img( style="background-image: url( '/upload/flats/1.jpg' );" alt="" )
+                .swiper-slide
+                  .b-form-flat__img( style="background-image: url( '/upload/flats/2.jpg' );" alt="" )
+                .swiper-slide
+                  .b-form-flat__img( style="background-image: url( '/upload/flats/3.jpg' );" alt="" )
+              .swiper-button-prev
+              .swiper-button-next
+              .swiper-pagination
+            
+            .swiper-container( data-tab="floor" )
+              .swiper-wrapper
+                .swiper-slide
+                  .b-form-flat__img( style="background-image: url( '/upload/flats/1.jpg' );" alt="" )
+                .swiper-slide
+                  .b-form-flat__img( style="background-image: url( '/upload/flats/2.jpg' );" alt="" )
+                .swiper-slide
+                  .b-form-flat__img( style="background-image: url( '/upload/flats/3.jpg' );" alt="" )
+              .swiper-button-prev
+              .swiper-button-next
+              .swiper-pagination
+              
+            hr.hr--lg
+              
+            .b-form-flat__galleries-switch
+              a.active( href="" data-tab="plan" ) Планировка
+              a( href="" data-tab="floor" ) Этаж
+              
+            hr
+          
+          .col-12.col-md-6
+          
+            .b-form-flat__info.d-none.d-md-block
+              .row
+                .col-6
+                  | <span>Проект:</span> ЖК Некрасовский
+                  br
+                  | <span>Корпус:</span> 3
+                  br
+                  | <span>Секция:</span> 1
+                  br
+                  | <span>Этаж:</span> 4
+                .col-6
+                  | <span>Номер квартиры:</span> 4563
+                  br
+                  | <span>Площадь квартиры:</span> 35 м²
+                  br
+                  | <span>Комнат:</span> 1
+                  br
+                  | <span>Санузлы:</span> 1
+                  br
+                  | <span>Спальня:</span> 1
+              
+            hr.hr--xl.d-none.d-md-block
+            
+            form( action="" method="GET" )
+
+              .b-float-label
+
+                input#formFlatName( type="text" )
+                label( for="formFlatName" ) Как вас зовут?
+
+              hr
+                
+              .b-float-label
+
+                input#formFlatPhone( type="tel" )
+                label( for="formFlatPhone" ) Ваш телефон*
+
+              hr
+
+              .text-center.small Нажимая кнопку «Отправить» вы подтверждаете свое
+                | 
+                a( href="" ) согласие на обработку персональных данных.
+
+              hr
+
+              .text-center
+                button.btn.btn-primary( type="submit" ) Отправить     
+
+hr
+
+.b-form-flat.ph-block
+
+  .ph
+  
+    .container-lg
+    
+      .ph__h1
+    
+      .ph__message
+
+  .ph-content
+
+    .container-lg
+    
+      h1 Забронировать квартиру
+        
+      hr.hr--lg
+
+      .b-form-flat__message
+        .b-form-flat__message-container
+          p Ваша заявка успешно отправлена
+          a.btn.btn-light( href="/pages/projects-detail/" ) Вернуться на страницу ЖК         
+            
+
+// end /components/form.flat/

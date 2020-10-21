@@ -1,0 +1,40 @@
+// start /components/projects/
+
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'projects.detail.map'
+else
+  - var componentsArray = [ 'projects.detail.map' ]
+  
+script( src="https://api-maps.yandex.ru/2.1/?apikey=6d05a9b7-21f5-471b-885d-410e6fdfea8e&lang=ru_RU" )
+
+script( src="/components/projects.detail.map/placemarks.js" )
+
+script
+  | window.projectsDetailYmapCenter = [55.723796,36.8669151];
+  | window.projectsDetailYmapIcon = "/template/images/ready-icon.svg";
+  | window.projectsDetailYmapZoom = 14;
+  
+.b-projects-detail-map.ph-block
+
+  .ph
+
+    .ph__map
+    .ph__signs
+
+  .ph-content
+    
+    #projectsDetailYmap
+
+    hr
+
+    .b-projects-detail-map__signs
+      div Указатели:
+      div
+        img( src="/template/images/ready-icon.svg" alt="" )
+        span Парки
+      div
+        img( src="/template/images/construction-icon.svg" alt="" )
+        span Общественный транспорт
+              
+// end /components/projects/

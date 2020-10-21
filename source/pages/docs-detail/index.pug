@@ -1,0 +1,18 @@
+extends ../../layouts/main
+
+block vars
+  - var page = 'page-docs-detail'
+  - var authorized = 'true'
+
+block title
+  title Документы ЖК | spa
+
+block content
+
+  hr.hr--lg
+
+  .container-lg
+  
+    h1 Документы ЖК
+    
+    include ../../components/docs.detail/template

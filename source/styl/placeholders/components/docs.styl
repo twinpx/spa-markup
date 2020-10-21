@@ -1,0 +1,33 @@
+.b-docs    
+
+  &.ph-block
+    position relative
+  
+  .ph
+    display flex
+    justify-content space-between
+    align-items stretch
+    flex-wrap wrap
+
+    &__item
+      width calc( (100% - 60px) / 3 )
+      height 170px
+      border-radius 10px
+      margin-bottom 30px
+      background-color $placeholder-color
+
+      @media( max-width 1199px )
+        width calc( (100% - 30px) / 2 )
+
+      @media( max-width 767px )
+        width 100%
+        margin-bottom 15px
+        
+    &-content
+      position absolute
+      top 0
+      left 0
+      width 100%
+      transition( opacity .5s ease )
+      opacity 0
+      z-index 0
