@@ -1,0 +1,20 @@
+extends ../../layouts/main
+
+block vars
+  - var page = 'page-hypothec'
+  - var authorized = 'true'
+
+block title
+  title Документы | spa
+
+block content
+
+  hr.hr--lg
+    
+  include ../../components/inform-block/template
+
+  hr.hr--lg
+
+  .container-lg
+    
+    include ../../components/calculator/template

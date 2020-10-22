@@ -1,0 +1,163 @@
+@import '../../styl/component-include.styl'
+
+.b-calculator
+
+  &.ph-block
+    
+    &.ph-block--animated
+      
+      .ph-content
+        position static
+        width auto
+        opacity 1
+        
+      .ph
+        position absolute
+        top 0
+        left 0
+        opacity 0
+        width 100%
+        pointer-events none
+        z-index 1
+    
+.b-calculator
+  
+  &__wrapper
+    border 1px solid #e5e5e5
+    padding 40px
+
+    @media( max-width 575px )
+      padding 20px
+    
+  label
+    font-size 11px
+    line-height 14px
+    margin-bottom 8px
+    display block
+
+  input[ type="text" ]
+    background-color $line-color
+    border none
+    border-radius 3px
+    height 48px
+    line-height 48px
+    padding 0 15px
+    font-size $11px
+    display block
+    width 100%
+
+    &:focus
+      outline none
+      border none
+
+  .ui-slider
+    transform(translateY( -2px ))
+    margin 0 8px
+
+    .ui-slider-range
+      background-color #db0500
+      height 2px
+      margin 0 -8px
+
+  .ui-widget
+
+    &.ui-widget-content
+      height 1px
+      background-color transparent
+      box-shadow none
+      border-radius 0
+      border none
+
+  table
+    width 100%
+
+  th
+    font-size $10px
+    font-weight normal
+    line-height 16px
+    padding-left 36px
+    padding-bottom 13px
+    text-align left
+    vertical-align bottom
+    border-bottom 1px solid #e5e5e5
+
+    @media( max-width 575px )
+      display none
+
+      &:first-child
+        display table-cell
+        text-align center
+        padding 0 0 5px
+
+  tbody
+    
+    tr
+
+      @media( max-width 575px )
+        display flex
+        flex-wrap wrap
+
+  td
+    font-size $14px
+    padding-left 36px
+    border-bottom 1px solid #e5e5e5
+    vertical-align middle
+    text-align left
+    height 100px
+
+    &:first-child
+      border-left 1px solid #e5e5e5
+
+    &:last-child
+      border-right 1px solid #e5e5e5
+
+    @media( max-width 575px )
+      height auto
+      padding 15px
+      text-align center
+
+      &:first-child
+        width 100%
+        border-right 1px solid #e5e5e5
+        border-bottom 0
+        padding-top 15px
+        padding-bottom 5px
+
+      &:nth-child(2)
+        border-left 1px solid #e5e5e5
+
+      &:nth-child(2),
+      &:nth-child(3)
+        padding-top 5px
+        padding-bottom 12px
+        width 50%
+
+  .ui-state-default,
+  .ui-slider-handle .ui-state-default
+    width 16px
+    height 16px
+    border-radius 8px
+    background-color $brand-color
+    border 0
+    top -7px
+    margin-left -8px
+    
+    &:focus
+      outline none
+
+  .ui-widget.ui-widget-content
+    height 1px
+    background-color transparent
+    border-radius 0
+    border none
+
+  .ui-slider .ui-slider-range
+    background-color $brand-color
+    height 2px
+
+  .btn
+    width 240px
+    max-width 100%
+    min-width 0
+
+    

@@ -1,0 +1,20 @@
+extends ../../layouts/main
+
+block vars
+  - var page = 'blocks-calculator'
+  - var authorized = 'true'
+  
+block title
+  title Blocks | Calculator | SPA
+
+block content
+
+  .container-lg
+
+    hr.hr--xl
+
+    h2 Ипотечный калькулятор
+
+    include ../../components/calculator/template
+    
+    

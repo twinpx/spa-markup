@@ -1,0 +1,77 @@
+// start /components/calculator/
+
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'calculator'
+else
+  - var componentsArray = [ 'calculator' ]
+
+.b-calculator.ph-block
+
+  .ph
+
+  .ph-content
+
+    .b-calculator__wrapper
+
+      .row
+
+        .col-12.col-md-4
+
+          .b-calculator__price
+            label Стоимость квартиры, &#8381;
+            input(type="text" name="price" value="6000000")
+            .b-calculator__price-range(data-min="0" data-max="50000000")
+
+          hr
+
+          .b-calculator__payment
+            label Первоначальный взнос, &#8381;
+            input(type="text" name="price" value="2000000")
+            .b-calculator__payment-range(data-min="0" data-max="10000000")
+
+          hr
+
+          .b-calculator__period
+            label Срок кредита, лет
+            input(type="text" name="price" value="15")
+            .b-calculator__period-range(data-min="0" data-max="30")
+
+          hr.hr--lg
+
+          .text-center
+            a.btn.btn-primary( href="/blocks/hypothec-message/" ) Отправить заявку
+
+        hr.d-block.d-md-none.w-100
+
+        .col-12.col-md-8
+
+          table
+            thead
+              tr
+                th Банк
+                th Ставка
+                th Ежемесячный взнос
+            tbody
+              tr
+                td
+                  img(src="" height="25" width="130" alt="")
+                td 9%
+                td
+              tr
+                td
+                  img(src="" height="33" width="94" alt="")
+                td 5%
+                td
+              tr
+                td
+                  img(src="" height="30" width="130" alt="")
+                td 12%
+                td
+              tr
+                td
+                  img(src="" height="50" width="100" alt="")
+                td 7%
+                td
+
+// end /components/calculator/
