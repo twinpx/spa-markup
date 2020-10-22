@@ -6,25 +6,25 @@ if componentsArray
 else
   - var componentsArray = [ 'projects.detail' ]
 
-.b-projects-detal
+include ../../components/gallery/gallery-2
 
-  .container-lg
+hr.hr--lg
+
+.container-lg
+
+  include ../../components/projects.detail/docs
   
-    .b-load
-    
-      .b-load__item
+hr.hr--lg
 
-        .row
-        
-          include ./row
-          
-        hr
-          
-        .b-load__button-block.text-center
-          
-          hr
-          
-          button.btn.btn-light.b-load__button( data-url="/components/projects.detail/download.html?page=2" ) Еще
+.container-lg
+
+  h2 Расположение
+
+  include ../../components/projects.detail.map/template
+    
+hr.hr--lg
+
+include ../../components/filter/template
           
 
 // end /components/projects.detail/

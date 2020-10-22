@@ -19,7 +19,19 @@
         z-index -1
     
 .b-projects-detail
-  text-align center
+
+  &__docs
+    display block
+    background-color $line-color
+    border-radius 10px
+    padding 50px 45px
+    font-size $14px
+    display flex
+    justify-content space-between
+    align-items center
+
+    @media( max-width 767px )
+      display block
   
 .b-flat-card
   border 1px solid #e8e8e8

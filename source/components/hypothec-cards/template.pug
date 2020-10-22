@@ -1,0 +1,68 @@
+// start /components/hypothec-cards/
+
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'hypothec-cards'
+else
+  - var componentsArray = [ 'hypothec-cards' ]
+
+.b-hypothec-cards.ph-block
+
+  .ph
+
+    .ph__item
+    .ph__item
+    .ph__item
+
+  .ph-content
+
+    .b-hypothec-cards__wrapper
+
+      a.b-hypothec-cards__item( href="" style="background-image: url( '/upload/print-icon.svg' );" )
+        span.b-hypothec-cards__title Сбербанк
+        
+        span.b-hypothec-cards__info
+          span.text-muted.small Ставка
+          | 0,5 %
+
+        span.b-hypothec-cards__info
+          span.text-muted.small Срок
+          | 12 лет
+
+        span.b-hypothec-cards__info
+          span.text-muted.small Первый взнос
+          | 20%
+
+
+      a.b-hypothec-cards__item( href="" style="background-image: url( '/upload/print-icon.svg' );" )
+        span.b-hypothec-cards__title ПСБ
+        
+        span.b-hypothec-cards__info
+          span.text-muted.small Ставка
+          | 0,5 %
+
+        span.b-hypothec-cards__info
+          span.text-muted.small Срок
+          | 12 лет
+
+        span.b-hypothec-cards__info
+          span.text-muted.small Первый взнос
+          | 20%
+
+
+      a.b-hypothec-cards__item( href="" style="background-image: url( '/upload/print-icon.svg' );" )
+        span.b-hypothec-cards__title Росбанк
+        
+        span.b-hypothec-cards__info
+          span.text-muted.small Ставка
+          | 0,5 %
+
+        span.b-hypothec-cards__info
+          span.text-muted.small Срок
+          | 12 лет
+
+        span.b-hypothec-cards__info
+          span.text-muted.small Первый взнос
+          | 20%
+
+// end /components/cards/

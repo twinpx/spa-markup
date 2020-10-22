@@ -1,0 +1,67 @@
+@import '../../styl/component-include.styl'
+
+.b-cards
+
+  &.ph-block
+    
+    &.ph-block--animated
+      
+      .ph-content
+        position static
+        width auto
+        opacity 1
+        
+      .ph
+        position absolute
+        top 0
+        left 0
+        opacity 0
+        width 100%
+        pointer-events none
+        z-index 1
+    
+.b-cards
+
+  &__wrapper
+    display flex
+    justify-content space-between
+    align-items stretch
+
+    @media( max-width 767px )
+      display block
+  
+  &__item
+    display block
+    position relative
+    width calc( (100% - 60px) / 3 )
+    min-height 200px
+    border-radius 10px
+    background-color $brand-color
+    background-bg()
+    color #fff
+    padding 30px
+    font-weight $bold
+  
+    &,
+    &:hover,
+    &:active,
+    &:focus
+      color #fff
+
+    @media( max-width 767px )
+      display block
+      width 100%
+      margin-bottom 15px
+
+  &__top
+    display block
+    font-size $32px
+    line-height 1.1
+
+  &__bottom
+    display block
+    position absolute
+    font-size $18px
+    bottom 30px
+    left 30px
+

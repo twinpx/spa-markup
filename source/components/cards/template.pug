@@ -1,0 +1,33 @@
+// start /components/cards/
+
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'cards'
+else
+  - var componentsArray = [ 'cards' ]
+
+.b-cards.ph-block
+
+  .ph
+
+    .ph__item
+    .ph__item
+    .ph__item
+
+  .ph-content
+
+    .b-cards__wrapper
+
+      a.b-cards__item( href="" style="background-image: url( '/upload/print-icon.svg' ); background-color: #c91145;" )
+        span.b-cards__top 5%
+        span.b-cards__bottom Ипотека
+
+      a.b-cards__item( href="" style="background-image: url( '/upload/print-icon.svg' ); background-color: #622a55;" )
+        span.b-cards__top от 24 м<sup>2</sup>
+        span.b-cards__bottom Студии для студентов
+
+      a.b-cards__item( href="" style="background-image: url( '/upload/print-icon.svg' ); background-color: #341c6c;" )
+        span.b-cards__top От 2 млн. рублей
+        span.b-cards__bottom Выгодная инвестиция
+
+// end /components/cards/
