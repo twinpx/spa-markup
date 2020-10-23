@@ -26,9 +26,9 @@
     //set sliders
     [ 'price', 'payment', 'period' ].forEach( function( elem ) {
       
-      var min = 1 * $( '.b-calculator__' + elem + '-range' ).data( 'min' );
-      var max = 1 * $( '.b-calculator__' + elem + '-range' ).data( 'max' );
       var $range = $( '.b-calculator__' + elem + '-range' );
+      var min = 1 * $range.data( 'min' );
+      var max = 1 * $range.data( 'max' );
       var input = document.querySelector( '.b-calculator__' + elem + ' input[ type=text ]' );
       
       //range

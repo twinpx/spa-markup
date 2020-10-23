@@ -27,6 +27,12 @@
     justify-content space-between
     align-items stretch
     flex-wrap wrap
+
+    @media( min-width 1200px )
+
+      &:after
+        content ''
+        width calc( (100% - 60px) / 3 )
   
   &__item
     width calc( (100% - 60px) / 3 )

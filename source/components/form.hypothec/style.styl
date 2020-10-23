@@ -1,0 +1,48 @@
+@import '../../styl/component-include.styl'
+
+.b-form-hypothec
+
+  &.ph-block
+    
+    &.ph-block--animated
+      
+      .ph-content
+        position static
+        width auto
+        opacity 1
+        
+      .ph
+        position absolute
+        top 0
+        left 0
+        opacity 0
+        z-index -1
+      
+      &__message
+        opacity 0
+    
+.b-form-hypothec
+
+  &__body
+    border 1px solid #e5e5e5
+    padding 50px 100px
+
+  &__message
+    border 1px solid #e5e5e5
+    padding 70px 30px
+    text-align center
+    height 550px
+    display flex
+    align-items center
+    justify-content space-around
+
+    p
+      color $brand-color
+      font-size $32px
+      font-weight bold
+      margin-bottom 4rem
+      max-width 100%
+
+  .small
+    width 300px
+    margin 0 auto

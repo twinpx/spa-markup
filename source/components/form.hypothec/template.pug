@@ -1,0 +1,73 @@
+// start /components/form.hypothec/
+
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'form.hypothec'
+else
+  - var componentsArray = [ 'form.hypothec' ]
+
+.b-form-hypothec.ph-block
+
+  .ph
+  
+    .container-lg
+      .ph__form
+
+  .ph-content
+
+    .container-lg
+      
+      .row.justify-content-md-center
+
+        .col-12.col-md-8.b-form-hypothec__body
+    
+          h1 Отправить заявку
+            
+          hr.hr--lg
+          
+          form( action="" method="GET" )
+
+            .b-float-label
+
+              input#formHypothecName( type="text" )
+              label( for="formHypothecName" ) Как вас зовут?
+
+            hr
+              
+            .b-float-label
+
+              input#formHypothecPhone( type="tel" )
+              label( for="formHypothecPhone" ) Ваш телефон*
+
+            hr
+
+            .text-center.small Нажимая кнопку «Отправить» вы подтверждаете свое
+              | 
+              a( href="" ) согласие на обработку персональных данных.
+
+            hr
+
+            .text-center
+              button.btn.btn-primary( type="submit" ) Отправить     
+
+hr
+
+.b-form-hypothec.ph-block
+
+  .ph
+  
+    .container-lg    
+      .ph__message
+
+  .ph-content
+
+    .container-lg
+
+      .row.justify-content-md-center
+
+        .col-12.col-md-8.b-form-hypothec__message
+          .b-form-hypothec__message-container
+            p Ваша заявка успешно отправлена
+            a.btn.btn-light( href="/pages/projects-detail/" ) Вернуться на страницу ЖК         
+
+// end /components/form.hypothec/

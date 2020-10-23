@@ -1,0 +1,16 @@
+extends ../../layouts/main
+
+block vars
+  - var page = 'page-form-hypothec'
+  - var authorized = 'true'
+
+block title
+  title Форма заявки на ипотеку | spa
+
+block content
+
+  hr.hr--lg
+
+  .container-lg
+    
+    include ../../components/form.hypothec/template

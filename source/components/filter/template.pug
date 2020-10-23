@@ -38,8 +38,10 @@ else
               span 3
           .b-checkbox
             label
-              input( type="checkbox" name="ROOMS[]" value="4" )
+              input( type="checkbox" name="ROOMS[]" value="4" disabled )
               span 4
+
+        hr.d-block.d-xl-none
 
         .b-filter__square
           label Площадь, м2
@@ -48,6 +50,8 @@ else
             input.b-filter__square-max( type="text" value="150" name="square-max" )
           .b-filter__square-range( data-min="20" data-max="150")
 
+        hr.d-block.d-sm-none
+
         .b-filter__price
           label Цена
           .b-filter__price-fields
@@ -55,12 +59,16 @@ else
             input.b-filter__price-max( type="text" value="12000000" name="price-max" )
           .b-filter__price-range( data-min="1800000" data-max="12000000")
 
-        .b-filter__price
+        hr.d-block.d-md-none
+
+        .b-filter__status
           label Стадия строительства
-          select.custom-select( name="status" )
+          select( name="status" )
             option( value="1" ) Строится
             option( value="2" ) Построен
             option( value="3" ) Сдан
+
+        hr.d-block.d-xl-none
 
         .b-filter__submit
           button.btn.btn-primary( type="submit" ) Подобрать

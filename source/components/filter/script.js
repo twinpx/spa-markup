@@ -3,6 +3,9 @@
   'use strict';
   
   $( function() {
+
+    //select
+    $( '.b-filter select' ).ikSelect();
     
     //lazyload
     $( '.b-flat-card__img' ).lazyload();
@@ -65,6 +68,124 @@
         moreButtonFlag = true;
         document.querySelector( '.b-filter form' ).requestSubmit();
       });
+    }
+
+    Number.prototype.format = function(){
+      return this.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+    };
+    
+    String.prototype.deformat = function(){
+      return Number( this.toString().split( ' ' ).join(''));
+    };
+
+    //set sliders
+    [ 'square', 'price' ].forEach( function( elem ) {
+      
+      var $range = $( '.b-filter__' + elem + '-range' );
+      var min = 1 * $range.data( 'min' );
+      var max = 1 * $range.data( 'max' );
+      var inputMin = document.querySelector( '.b-filter__' + elem + '-min' );
+      var inputMax = document.querySelector( '.b-filter__' + elem + '-min' );
+      
+      //range
+      $range.slider({
+        animate: 'slow',
+        range: true,
+        min: min,
+        max: max,
+        value: [ String( inputMin.value ).deformat(), String( inputMax.value ).deformat() ],
+        slide: function( event, ui ) {
+          changeInput( ui.values, elem, min, max, input, $range );
+        }
+      });
+      
+      //min
+      $( inputMin )
+      
+      .blur( function(e) {
+        
+        if ( e.which === '13' ) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+        
+        changeInput( [this.value, none], elem, min, max, this, $range );
+      })
+      
+      .keydown( function(e) {
+        if ( e.which === 13 ) {
+          return false;
+        }
+      })
+      .keyup( function(e) {
+        
+        if ( e.which === 13 ) {
+          return false;
+        } else {
+          changeInput( [this.value, none], elem, min, max, this, $range );
+        }
+      });
+      
+      //max
+      $( inputMax )
+      
+      .blur( function(e) {
+        
+        if ( e.which === '13' ) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+        
+        changeInput( [none, this.value], elem, min, max, this, $range );
+      })
+      
+      .keydown( function(e) {
+        if ( e.which === 13 ) {
+          return false;
+        }
+      })
+      .keyup( function(e) {
+        
+        if ( e.which === 13 ) {
+          return false;
+        } else {
+          changeInput( [none, this.value], elem, min, max, this, $range );
+        }
+      });
+      
+    });
+    
+    function changeInput( valuesArray, elem, min, max, input, $range ) {
+      
+      var inputValue = String( value ).deformat();//only digits
+          
+      //min max
+      if ( inputValue < min) {
+        inputValue = min;
+      } else if ( inputValue > max ) {
+        inputValue = max;
+      }
+      
+      //price & payment
+      if ( elem === 'price' && inputValue < String( paymentInput.value ).deformat()) {
+        paymentInput.value = Number( inputValue ).format();
+        $( '.b-calculator__payment-range' ).slider( 'value', inputValue );
+      }
+      
+      if ( elem === 'payment' && inputValue > String( priceInput.value ).deformat()) {
+        paymentInput.value = priceInput.value;
+        inputValue = String( priceInput.value ).deformat();
+        $( '.b-calculator__payment-range' ).slider( 'value', inputValue );
+      }
+      
+      //set value and range
+      if ( Number( inputValue ) === 0 ) {
+        input.value = '';
+      } else {
+        input.value = Number( inputValue ).format();
+      }
+      $range.slider( "value", inputValue );
+
     }
 
     //sliders

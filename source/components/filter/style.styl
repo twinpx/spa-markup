@@ -20,6 +20,10 @@
   &__wrapper
     display flex
     justify-content space-between
+    flex-wrap wrap
+
+    @media( max-width 1199px )
+      display block
 
     label
       font-size $11px
@@ -51,6 +55,7 @@
 
       label
         display inline-block
+        margin-bottom 0
 
       [ type="checkbox" ]
         position absolute
@@ -62,8 +67,21 @@
           border-color $brand-color
           color #fff
 
+        &:disabled + span
+          background-color $line-color
+          color rgba(51, 51, 51, .3)
+          pointer-events none
+
   &__square,
   &__price
+
+    @media( max-width 1199px )
+      display inline-block
+      margin-right 30px
+
+    @media( max-width 575px )
+      display block
+      margin-right 0
 
     &-fields
       width 150px
@@ -71,7 +89,10 @@
       padding 15px 0
       background-color $line-color
       display flex
-      jusrify-content space-around
+      justify-content space-around
+
+      @media( max-width 575px )
+        width 100%
 
       input[ type="text" ]
         border none
@@ -84,12 +105,18 @@
         width 75px
         background-color transparent
 
+        @media( max-width 575px )
+          width 50%
+
         &:focus
           border 0
 
         &:first-child
           border-right 1px solid #bfbfbf
           width 74px
+
+          @media( max-width 575px )
+            width calc( 50% - 1px )
 
     &-range
       transform( translateY( -1px ))
@@ -99,11 +126,58 @@
     &-fields
       width 200px
 
+      @media( max-width 575px )
+        width 100%
+
       input[ type="text" ]
         width 100px
 
+        @media( max-width 575px )
+          width 50%
+
         &:first-child
           width 99px
+
+          @media( max-width 575px )
+            width calc( 50% - 1px )
+
+  &__status
+
+    select
+      pointer-events none
+
+    @media( max-width 1199px )
+      display inline-block
+
+    @media( max-width 575px )
+      display block
+
+  .ik_select
+    min-width 160px
+  
+    &_link
+    
+      &_text
+        height 48px
+        background-color #f5f5f5
+        font-size $11px
+        line-height 48px
+        padding 0 15px
+        position relative
+
+        &:after
+          content ''
+          display block
+          width 9px
+          height 10px
+          border-right 2px solid #707070
+          border-bottom 2px solid #707070
+          transform( rotate(45deg))
+          transition( transform .3s ease )
+          position absolute
+          top 20px
+          right 18px
+          z-index 1
 
   .ui-widget
     font-family "Akrobat", "Open Sans Condensed", Arial, sans-serif
@@ -163,6 +237,9 @@
 
   &__submit
     margin-top 24px
+
+    @media( max-width 575px )
+      text-align center
 
 .b-filter-result
 
@@ -231,6 +308,28 @@
       font-weight $normal
       color #707070
       white-space nowrap
+
+.ik_select_dropdown
+  background-color #f5f5f5
+  border-radius 0 0 3px 3px
+  box-shadow 0 5px 5px #eee
+  border-top 1px solid #fff
+
+  ul
+    padding 5px 0
+    margin 0
+
+  li
+    list-style-type none
+    padding 0 20px
+    margin 0
+    font-size 9pt
+    line-height 25px
+    cursor default
+    min-width 160px
+
+    &:hover
+      background-color #fff
 
 
 

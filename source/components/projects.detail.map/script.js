@@ -42,22 +42,22 @@
           );
           
         }
+      }
 
-        placemarks.push( new ymaps.Placemark(
-          window.projectsDetailYmapCenter,
-          {},
-          {
-            iconLayout: 'default#image',
-            iconImageHref: window.projectsDetailYmapIcon,
-            iconImageSize: [82, 82],
-            iconImageOffset: [-41, -41]
-          }
-        ));
-          
-        //projectsDetailYmap.geoObjects.add( clusterers[ projectsType ] );
-        for ( var q = 0; q < placemarks.length; q++ ) {
-          projectsDetailYmap.geoObjects.add( placemarks[q] );
+      placemarks.push( new ymaps.Placemark(
+        window.projectsDetailYmapCenter,
+        {},
+        {
+          iconLayout: 'default#image',
+          iconImageHref: window.projectsDetailYmapIcon,
+          iconImageSize: [82, 82],
+          iconImageOffset: [-41, -41]
         }
+      ));
+        
+      //projectsDetailYmap.geoObjects.add( clusterers[ projectsType ] );
+      for ( var q = 0; q < placemarks.length; q++ ) {
+        projectsDetailYmap.geoObjects.add( placemarks[q] );
       }
     }
     
