@@ -29,7 +29,7 @@
     bottom 40px
     left 15px
     opacity 1
-    transition( none )
+    transition( opacity .5s ease )
     transform( none )
 
     &:after
@@ -37,6 +37,9 @@
 
     &:focus
       outline none
+
+    &:hover
+      opacity .5
 
   .swiper-button-next
     left 110px
@@ -57,7 +60,8 @@
       background-color #fff
       opacity 1
 
-  &__content
+  &__content,
+  &__slide-content
     position absolute
     top 194px
     left 0
