@@ -95,3 +95,46 @@
       font-weight $normal
       color #707070
       white-space nowrap
+
+.b-advantages
+  display block
+
+  &__menu
+
+    a
+      font-size $14px
+      display block
+      margin-bottom 10px
+      line-height 1.2
+
+      &,
+      &:hover,
+      &:active,
+      &:focus
+        color #707070
+
+      &.active
+        pointer-events none
+        cursor default
+
+        &,
+        &:hover,
+        &:active,
+        &:focus
+          color #000
+          opacity 1
+
+      @media( max-width 767px )
+        white-space nowrap
+        width auto !important
+
+    @media( min-width 768px )
+
+      .swiper-wrapper
+        display block
+
+  &__tab
+    display none
+
+    &.active
+      display block

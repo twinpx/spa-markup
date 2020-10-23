@@ -10,21 +10,29 @@ include ../../components/gallery/gallery-2
 
 hr.hr--lg
 
-.container-lg
+#advantages.container-lg
+
+  h2 Преимущества
+  hr
+  include ../../components/projects.detail/advantages
+
+hr.hr--lg
+
+#docs.container-lg
 
   include ../../components/projects.detail/docs
   
 hr.hr--lg
 
-.container-lg
+#location.container-lg
 
   h2 Расположение
-
+  
   include ../../components/projects.detail.map/template
     
 hr.hr--lg
 
-include ../../components/filter/template
+//-include ../../components/filter/template
           
 
 // end /components/projects.detail/
