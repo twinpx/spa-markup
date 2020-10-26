@@ -1,19 +1,26 @@
-extends ../../layouts/main
+// start /components/news.detail/
 
-block vars
-  - var page = 'blocks-text'
-  - var authorized = 'true'
-  
-block title
-  title Blocks | Text | SPA
+//- push style and script file to the end of the page
+if componentsArray
+  - componentsArray[ componentsArray.length ] = 'news.detail'
+else
+  - var componentsArray = [ 'news.detail' ]
 
-block content
+.b-news-detail.ph-block
 
-  hr.hr--lg
+  .ph
 
-  .container-lg
-  
-    h1 О компании
+    .ph__title
+    .ph__text
+      div
+      div
+      div
+      div
+      div
+
+  .ph-content
+
+    h1 Передаче квартир в домах по адресам: г. Звенигород, р-н Восточный, мкр. 2,3, корпуса 6, 9, 10 и 13
     
     p.b-lead Стройпромавтоматика замыкает в себе абсолютно полный цикл Девелопера: от планирования развития сбалансированных территорий, до реализации недвижимости и управления объектами собственной управляющей компанией.
     
@@ -22,5 +29,14 @@ block content
     hr.hr--xl
     
     blockquote Привлекая собственные средства финансирования в развитие проектов, осуществляя собственное управление финансовыми потоками и планирование бюджетами, развивая собственные сети инженерной инфраструктуры и возводя собственные теплоэнергетические центры для своих жилых комплексов добилось максимального снижения инвестиционной стоимости (удельной цены) единицы строительства.
+
+    hr.hr--xl
+
+    a.btn.btn-outline-primary( href="/pages/news/" ) Вернуться к списку новостей
     
-    
+
+
+
+      
+
+// end /components/news.detail/

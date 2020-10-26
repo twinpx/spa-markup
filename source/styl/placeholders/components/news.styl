@@ -1,0 +1,39 @@
+.b-news
+
+  &.ph-block
+    position relative
+  
+  .ph
+    padding-top 5px
+
+    &__menu
+      height 10px
+      background-color $placeholder-color
+      width 300px
+      margin-bottom 72px
+
+    &__title
+      height 20px
+      background-color $placeholder-color
+      width 70%
+      margin-bottom 45px
+
+    &__text
+      width 70%
+
+      div
+        height 7px
+        margin-bottom 15px
+        background-color $placeholder-color
+
+        &:last-child
+          width 70%
+        
+    &-content
+      position absolute
+      top 0
+      left 0
+      width 100%
+      transition( opacity .5s ease )
+      opacity 0
+      z-index 0

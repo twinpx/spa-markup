@@ -24,11 +24,12 @@
 
     //submit
     var moreButtonFlag = false;
-    $( '.b-filter form' ).submit( function(e) {
+    $( '.b-filter form[ data-ajax=true ]' ).submit( function(e) {
 
       e.preventDefault();
 
       var $form = $( this );
+      var $filter = $form.closest( '.b-filter' );
 
       $.ajax({
         url: $form.attr( 'action' ),
@@ -37,11 +38,11 @@
         data: $form.serialize(),
         success: function( html ) {
           if ( moreButtonFlag ) {
-            $( '.b-filter-result' ).append( html ).find( '.b-filter-result__block:last' ).slideDown();
+            $filter.find( '.b-filter-result' ).append( html ).find( '.b-filter-result__block:last' ).slideDown();
           } else {
-            $( '.b-filter-result' ).html( html ).find( '.b-filter-result__block:last' ).slideDown();
+            $filter.find( '.b-filter-result' ).html( html ).find( '.b-filter-result__block:last' ).slideDown();
           }
-          $( '.b-filter-result .b-filter-result__block:last .b-flat-card__img' ).lazyload();
+          $filter.find( '.b-filter-result .b-filter-result__block:last .b-flat-card__img' ).lazyload();
           moreButtonFlag = false;
         },
         error: function( a, b, c ) {

@@ -1,0 +1,41 @@
+@import '../../styl/component-include.styl'
+
+.b-pagination
+  font-size $11px
+  
+  a,
+  span
+    display inline-block
+    vertical-align top
+    margin-right 10px
+    margin-bottom 10px
+    display inline-block
+    background-color #fff
+    border 1px solid $line-color
+    border-radius 10px
+    line-height 50px
+    min-width 50px
+    height 50px
+    text-align center
+    padding 0 18px
+    transition( all .3s ease )
+    user-select none
+    cursor pointer
+
+    &,
+    &:hover,
+    &:active,
+    &:focus
+      color #2b2b2b
+
+    &:hover
+      opacity 1
+      border-color #eabeb4
+    
+  span
+    background-color $brand-color
+    border-color $brand-color
+    color #fff
+    pointer-events none
+    cursor default
+  

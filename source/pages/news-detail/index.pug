@@ -1,0 +1,16 @@
+extends ../../layouts/main
+
+block vars
+  - var page = 'page-news-detail'
+  - var authorized = 'true'
+
+block title
+  title Новость детально | spa
+
+block content
+
+  hr.hr--lg
+
+  .container-lg
+    
+    include ../../components/news.detail/template

@@ -1,0 +1,68 @@
+@import '../../styl/component-include.styl'
+
+.b-news
+
+  &.ph-block
+    
+    &.ph-block--animated
+      
+      .ph-content
+        position static
+        width auto
+        opacity 1
+        
+      .ph
+        position absolute
+        top 0
+        left 0
+        opacity 0
+        width 100%
+        pointer-events none
+        z-index 1
+    
+.b-news
+
+  &__menu
+
+    a,
+    span
+      font-size $14px
+      display inline-block
+      margin-right 30px
+      
+      &,
+      &:hover,
+      &:active,
+      &:focus
+        color #707070
+
+  .col-md-8
+  
+    a.b-news__title
+      font-size $24px
+      line-height 1
+      color #000
+      display block
+
+      &,
+      &:hover,
+      &:active,
+      &:focus
+        color #000
+
+  .col-md-4
+  
+    a.b-news__title
+      font-size $16px
+      line-height 24px
+      color #000
+      display block
+
+      &,
+      &:hover,
+      &:active,
+      &:focus
+        color #000
+
+    p
+      font-size $14px
