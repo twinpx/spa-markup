@@ -8,19 +8,17 @@ else
 
 include ../../components/gallery/gallery-2
 
-hr.hr--lg
+hr
+
+include ./anchor-menu
+
+hr.hr--xl.hr--line
 
 #advantages.container-lg
 
   h2 Преимущества
   hr
   include ../../components/projects.detail/advantages
-
-hr.hr--lg
-
-#docs.container-lg
-
-  include ../../components/projects.detail/docs
   
 hr.hr--lg
 
@@ -30,9 +28,47 @@ hr.hr--lg
   
   include ../../components/projects.detail.map/template
     
+hr.hr--xl.hr--line
 hr.hr--lg
 
-//-include ../../components/filter/template
+#filter
+  .container-lg
+
+    h2 Подбор квартиры
+
+  include ../../components/filter/template
+
+hr.hr--xl.hr--line
+
+#hypothec.container-lg
+
+    h2 Ипотека
+      a.small( href="" ) Рассчитать ипотеку
+
+    include ../../components/hypothec-cards/template
+
+hr.hr--xl.hr--line
+
+#progress.container-lg
+
+  h2 Ход строительства
+
+  include ./progress
+
+hr.hr--lg
+
+#news.container-lg
+
+  h2 Новости
+    a.small( href="/pages/news/" ) Все новости
+
+  include ../../components/news/three-cols
+
+hr.hr--lg
+
+#docs.container-lg
+
+  include ../../components/projects.detail/docs
           
 
 // end /components/projects.detail/

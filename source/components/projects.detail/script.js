@@ -4,6 +4,12 @@
   
   $( function() {
 
+    //anchor menu
+    $( '.b-projects-detail__anchor-menu a' ).click( function(e) {
+      e.preventDefault();
+      $( document ).scrollTo( $( $( this ).attr( 'href' )).offset().top - 100, 500);
+    });
+
     //advantages
     document.querySelectorAll( '.b-advantages__menu a' ).forEach( function( elem ) {
       elem.addEventListener( 'click', function(e) {

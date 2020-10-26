@@ -6,14 +6,14 @@ if componentsArray
 else
   - var componentsArray = [ 'projects.detail.map' ]
   
-script( src="https://api-maps.yandex.ru/2.1/?apikey=6d05a9b7-21f5-471b-885d-410e6fdfea8e&lang=ru_RU" )
+script( src="https://api-maps.yandex.ru/2.1/?apikey=6d05a9b7-21f5-471b-885d-410e6fdfea8e&lang=ru_RU&coordorder=longlat" )
 
 script( src="/components/projects.detail.map/placemarks.js" )
 
 script
-  | window.projectsDetailYmapCenter = [55.723796,36.8669151];
+  | window.projectsDetailYmapCenter = [36.8669151, 55.723796];
   | window.projectsDetailYmapIcon = "/template/images/ready-icon.svg";
-  | window.projectsDetailYmapZoom = 14;
+  | window.projectsDetailYmapZoom = 13;
   
 .b-projects-detail-map.ph-block
 
@@ -23,6 +23,8 @@ script
     .ph__signs
 
   .ph-content
+
+    #yamap( style="height: 500px;" )
     
     #projectsDetailYmap
 
