@@ -6,12 +6,12 @@ if componentsArray
 else
   - var componentsArray = [ 'projects' ]
   
-script( src="https://api-maps.yandex.ru/2.1/?apikey=6d05a9b7-21f5-471b-885d-410e6fdfea8e&lang=ru_RU" )
+script( src="https://api-maps.yandex.ru/2.1/?apikey=6d05a9b7-21f5-471b-885d-410e6fdfea8e&lang=ru_RU&coordorder=longlat" )
 
 script( src="/components/projects/placemarks.js" )
 
 script
-  | window.projectsYmapCenter = [55.723796,36.8669151];
+  | window.projectsYmapCenter = [36.8669151, 55.723796];
   | window.projectsYmapZoom = 13;
   
 .b-projects.ph-block
@@ -89,7 +89,8 @@ script
                   .col-xl-auto Звенигород, мкр-н Восточный № 2,3
                 .row
                   .col-xl
-                    b Восточный
+                    b
+                      a( href="/pages/projects-detail/" ) Восточный
                   .col-xl-auto От 10 млн. руб
                   
             hr.d-block.d-sm-none.w-100
@@ -102,7 +103,8 @@ script
                   .col-xl-auto Ул. Ленинская слобода, дом 19, этаж 4
                 .row
                   .col-xl
-                    b Радужный
+                    b
+                      a( href="/pages/projects-detail/" ) Радужный
                   .col-xl-auto От 3,5 млн. руб
                   
             hr.d-block.d-sm-none.w-100
@@ -115,7 +117,8 @@ script
                   .col-xl-auto Ул. Некрасова дом 27/8
                 .row
                   .col-xl
-                    b Некрасовский
+                    b
+                      a( href="/pages/projects-detail/" ) Некрасовский
                   .col-xl-auto От 7 млн. руб
                   
           hr
@@ -130,7 +133,8 @@ script
                   .col-xl-auto Нахабинское шоссе, д.1, кк 1,2,3
                 .row
                   .col-xl
-                    b Лермонтовский
+                    b
+                      a( href="/pages/projects-detail/" ) Лермонтовский
                   .col-xl-auto От 10 млн. руб
                   
             hr.d-block.d-sm-none.w-100
@@ -143,7 +147,8 @@ script
                   .col-xl-auto Ул. Фрунзе, д.29
                 .row
                   .col-xl
-                    b Малиновый ручей
+                    b
+                      a( href="/pages/projects-detail/" ) Малиновый ручей
                   .col-xl-auto От 3,5 млн. руб
                   
             hr.d-block.d-sm-none.w-100
@@ -156,7 +161,8 @@ script
                   .col-xl-auto Проезд Ветеранов, д.10, кк. 1,2,3,4
                 .row
                   .col-xl
-                    b Ракитня
+                    b
+                      a( href="/pages/projects-detail/" ) Ракитня
                   .col-xl-auto От 7 млн. руб
                   
         hr.hr--xl.hr--line
@@ -177,7 +183,8 @@ script
                   .col-xl-auto Звенигород, мкр-н Восточный № 2,3
                 .row
                   .col-xl
-                    b Восточный
+                    b
+                      a( href="/pages/projects-detail/" ) Восточный
                   .col-xl-auto От 10 млн. руб
                   
             hr.d-block.d-sm-none.w-100
@@ -190,7 +197,8 @@ script
                   .col-xl-auto Ул. Ленинская слобода, дом 19, этаж 4
                 .row
                   .col-xl
-                    b Радужный
+                    b
+                      a( href="/pages/projects-detail/" ) Радужный
                   .col-xl-auto От 3,5 млн. руб
                   
             hr.d-block.d-sm-none.w-100
@@ -203,7 +211,8 @@ script
                   .col-xl-auto Ул. Некрасова дом 27/8
                 .row
                   .col-xl
-                    b Некрасовский
+                    b
+                      a( href="/pages/projects-detail/" ) Некрасовский
                   .col-xl-auto От 7 млн. руб
     
       .b-projects__tab

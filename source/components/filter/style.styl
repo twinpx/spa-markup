@@ -1,19 +1,24 @@
 @import '../../styl/component-include.styl'
 
-.i-ph-animated
+.b-filter
 
-  .b-prices__ph
-    position absolute
-    top 0
-    left 0
-    width 100%
-    opacity 0
-    z-index -1
+  &.ph-block
     
-  .b-filter
-    position static
-    width auto
-    opacity 1
+    &.ph-block--animated
+      
+      .ph-content
+        position static
+        width auto
+        opacity 1
+        
+      .ph
+        position absolute
+        top 0
+        left 0
+        opacity 0
+        width 100%
+        pointer-events none
+        z-index 1
   
 .b-filter
 
@@ -198,6 +203,7 @@
     background-color transparent
     border-radius 0
     border none
+    margin 0 8px
     
   .ui-state-default,
   .ui-widget-content .ui-state-default,

@@ -60,6 +60,7 @@
       }
     });
     
+    //ymap
     function showProjectsMap() {
       var projectsYmap = new ymaps.Map( 'projectsYmap', {
           center: window.projectsYmapCenter,
@@ -69,12 +70,22 @@
         yandexMapDisablePoiInteractivity: true
       }),
       projectsObj = {},
-      placemarks = {};
+      placemarks = {},
+      regionName = "Звенигород";
+
+      var hintContentLayoutClass = ymaps.templateLayoutFactory.createClass(
+        '<div class="b-project-hint">{{properties.name}}</div>' 
+      );
       
-      projectsYmap.behaviors.disable( 'scrollZoom' ); 
-      projectsYmap.events.add( 'click', function (e) {
-        projectsYmap.balloon.close();
-      });
+      //touch devices
+      if ( "ontouchstart" in document.documentElement ) {
+        projectsYmap.behaviors.disable('drag');
+        projectsYmap.events.add( 'click', function (e) {
+          projectsYmap.behaviors.enable('drag');
+        });
+      }
+      
+      projectsYmap.behaviors.disable( 'scrollZoom' );
       
       if ( window.projectsPlacemarks ) {
         
@@ -89,14 +100,19 @@
             
             placemarks[ projectsType ][i] = new ymaps.Placemark(
               projectsObj.coords,
-              {},
+              {
+                name: projectsObj.name
+              },
               {
                 iconLayout: 'default#image',
                 iconImageHref: projectsObj.src,
-                iconImageSize: [32, 32],
-                iconImageOffset: [-16, -16]
+                iconImageSize: [64, 64],
+                iconImageOffset: [-32, -32],
+                hintLayout: hintContentLayoutClass
               }
             );
+
+            placemarks[ projectsType ][i].events.add([ 'click' ], clickPlacemark( projectsObj.url ));
             
           }
             
@@ -107,6 +123,34 @@
           
         }
       }
+
+      function clickPlacemark( url ) {
+        return function() {
+          window.location = url;
+        };
+      }
+          
+      // Запрашиваем через геокодер район (у Яндекса этой возможности пока нет, придется пользоваться OSM)
+      var url = "http://nominatim.openstreetmap.org/search";
+
+      $.getJSON( url, { q: regionName, format: "json", polygon_geojson: 1 })
+        .then( function (data) {
+          $.each( data, function( ix, place ) {
+            if ( "relation" === place.osm_type ) {
+              // Создаем полигон с нужными координатами
+              var p = new ymaps.Polygon( place.geojson.coordinates, {}, {
+                fillColor: '#ffffff00',
+                strokeColor: "#610618",
+                strokeWidth: 5,
+                strokeStyle: 'dot'
+              });
+              // Добавляем полигон на карту
+              projectsYmap.geoObjects.add(p);
+            }
+          });
+        }, function( err ) {
+          //console.log( err );
+        });
     }
     
   });

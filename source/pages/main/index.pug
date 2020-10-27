@@ -1,11 +1,46 @@
 extends ../../layouts/main
 
+block vars
+  - var page = 'page-main'
+  - var authorized = 'true'
+
 block title
-  title Pages list | spa
+  title Главная страница | spa
 
 block content
 
+  include ../../components/gallery/template
+
+  hr.hr--xl
+
   .container-lg
-    h1 spa
-    
+
+    h2 Подбор квартиры
+
+  include ../../components/filter/complex-select
+
+  hr.hr--xl.hr--line
+
+  include ../../components/inform-block/template
+
+  hr.hr--xl.hr--line
+
+  include ../../components/projects/template
+
+  hr.hr--xl.hr--line
+
   .container-lg
+
+    h2 Ипотека
+      a.small( href="" ) Рассчитать ипотеку
+
+    include ../../components/hypothec-cards/template
+
+  hr.hr--xl.hr--line
+
+  .container-lg
+
+    h2 Новости
+      a.small( href="/pages/news/" ) Все новости
+
+    include ../../components/news/three-cols

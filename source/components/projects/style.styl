@@ -113,6 +113,14 @@
         transform( translateY(0))
     
   &__item
+
+    a
+
+      &,
+      &:hover,
+      &:active,
+      &:focus
+        color #333
   
     @media( max-width 575px )
       opacity 0
@@ -216,4 +224,14 @@
         color #fff
         cursor default
       
-    
+.b-project-hint
+  background-color #fff
+  height 50px
+  line-height 50px
+  border-radius 25px
+  min-width 200px
+  width auto
+  font-size $12px
+  text-align center
+  box-shadow 0 0 10px rgba( 0,0,0,.3 )
+  white-space nowrap
