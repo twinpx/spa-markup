@@ -1,0 +1,77 @@
+// start /components/contacts/
+
+//- push style and script file to the end of the page
+block components-array
+  if componentsArray
+    - componentsArray[ componentsArray.length ] = 'contacts'
+  else
+    - var componentsArray = [ 'contacts' ]
+  
+.b-contacts.ph-block
+
+  .ph
+
+    .ph__item
+    .ph__item
+    .ph__item
+
+  .ph-content
+
+    .b-contacts-block
+
+      .row
+
+        .col-12.col-sm-6
+          h2 Главный офис
+
+          .small.text-muted Отдел продаж
+          .text-large +7 (495) 734-99 24
+
+          hr.hr--md
+
+          .small.text-muted Адрес
+          | Москва, Ленинская Слобода 19, БЦ Омега Плаза
+
+          hr.hr--md
+
+          .small.text-muted Метро
+          | Автозаводская
+          
+        hr.d-block.d-sm-none.w-100
+
+        .col-12.col-sm-6
+          .b-contacts-map
+
+    hr
+
+    .row
+
+      .col-12.col-sm-6
+        .b-contacts-block
+
+          h2 ЖК Лермонтовский
+
+          .small.text-muted Отдел продаж
+          .text-large +7 (495) 734-99 24
+
+          hr.hr--md
+
+          .small.text-muted Адрес
+          | Москва, Ленинская Слобода 19, БЦ Омега Плаза
+
+      hr.d-block.d-sm-none.w-100
+
+      .col-12.col-sm-6
+        .b-contacts-block
+
+          h2 ЖК Лермонтовский
+
+          .small.text-muted Отдел продаж
+          .text-large +7 (495) 734-99 24
+
+          hr.hr--md
+
+          .small.text-muted Адрес
+          | Москва, Ленинская Слобода 19, БЦ Омега Плаза
+
+// end /components/contacts/

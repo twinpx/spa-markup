@@ -1,0 +1,32 @@
+@import '../../styl/component-include.styl'
+
+.b-contacts
+
+  &.ph-block
+    
+    &.ph-block--animated
+      
+      .ph-content
+        position static
+        width auto
+        pointer-events auto
+        opacity 1
+        
+      .ph
+        position absolute
+        top 0
+        left 0
+        opacity 0
+        width 100%
+        pointer-events none
+        z-index 1
+
+.b-contacts-block
+  background-color $line-color
+  border-radius 10px
+  padding 30px
+  min-height 300px
+  height 100%
+
+  .small.text-muted
+    margin-bottom 5px
