@@ -22,6 +22,28 @@
       e.stopPropagation();
     });
 
+
+
+    //change the filter - set page opacity
+    document.querySelectorAll( '.b-filter input[type=checkbox]' ).forEach( function( elem ) {
+      elem.addEventListener( 'change', function() {
+        setPageOpacity();
+      });
+    });
+
+    $( '.b-filter' ).delegate( 'select', 'change', function() {
+      setPageOpacity();
+    });
+
+    $( 'body' ).click( function(e) {
+      if ( !$( 'body' ).hasClass( 'opacity' ) || e.target.closest( '.b-filter' )) {
+        return;
+      }
+      removePageOpacity();
+    });
+
+
+
     //submit
     var moreButtonFlag = false;
     $( '.b-filter form[ data-ajax=true ]' ).submit( function(e) {
@@ -79,6 +101,9 @@
       return Number( this.toString().split( ' ' ).join(''));
     };
 
+
+
+
     //set sliders
     [ 'square', 'price' ].forEach( function( elem ) {
       
@@ -86,7 +111,11 @@
       var min = 1 * $range.data( 'min' );
       var max = 1 * $range.data( 'max' );
       var inputMin = document.querySelector( '.b-filter__' + elem + '-min' );
-      var inputMax = document.querySelector( '.b-filter__' + elem + '-min' );
+      var inputMax = document.querySelector( '.b-filter__' + elem + '-max' );
+
+      //format input values
+      inputMin.value = Number( inputMin.value ).format();
+      inputMax.value = Number( inputMax.value ).format();
       
       //range
       $range.slider({
@@ -94,9 +123,12 @@
         range: true,
         min: min,
         max: max,
-        value: [ String( inputMin.value ).deformat(), String( inputMax.value ).deformat() ],
+        values: [ String( inputMin.value ).deformat(), String( inputMax.value ).deformat() ],
         slide: function( event, ui ) {
-          changeInput( ui.values, elem, min, max, input, $range );
+          changeInput( ui.values, min, max, [ inputMin, inputMax ], $range );
+        },
+        change: function() {
+          setPageOpacity();
         }
       });
       
@@ -110,21 +142,22 @@
           e.preventDefault();
         }
         
-        changeInput( [this.value, none], elem, min, max, this, $range );
+        changeInput( [this.value], min, max, [ inputMin, inputMax ], $range );
       })
       
       .keydown( function(e) {
         if ( e.which === 13 ) {
           return false;
         }
+        setPageOpacity();
       })
       .keyup( function(e) {
-        
         if ( e.which === 13 ) {
           return false;
         } else {
-          changeInput( [this.value, none], elem, min, max, this, $range );
+          inputMin.value = Number( String( inputMin.value ).deformat()).format();
         }
+        setPageOpacity();
       });
       
       //max
@@ -137,186 +170,108 @@
           e.preventDefault();
         }
         
-        changeInput( [none, this.value], elem, min, max, this, $range );
+        changeInput( [undefined, this.value], min, max, [ inputMin, inputMax ], $range );
       })
       
       .keydown( function(e) {
         if ( e.which === 13 ) {
           return false;
         }
+        setPageOpacity();
       })
       .keyup( function(e) {
-        
         if ( e.which === 13 ) {
           return false;
         } else {
-          changeInput( [none, this.value], elem, min, max, this, $range );
+          inputMax.value = Number( String( inputMax.value ).deformat() ).format();
         }
+        setPageOpacity();
       });
       
     });
     
-    function changeInput( valuesArray, elem, min, max, input, $range ) {
+    function changeInput( valuesArray, min, max, inputArray, $range ) {
       
-      var inputValue = String( value ).deformat();//only digits
-          
-      //min max
-      if ( inputValue < min) {
-        inputValue = min;
-      } else if ( inputValue > max ) {
-        inputValue = max;
-      }
-      
-      //price & payment
-      if ( elem === 'price' && inputValue < String( paymentInput.value ).deformat()) {
-        paymentInput.value = Number( inputValue ).format();
-        $( '.b-calculator__payment-range' ).slider( 'value', inputValue );
-      }
-      
-      if ( elem === 'payment' && inputValue > String( priceInput.value ).deformat()) {
-        paymentInput.value = priceInput.value;
-        inputValue = String( priceInput.value ).deformat();
-        $( '.b-calculator__payment-range' ).slider( 'value', inputValue );
-      }
-      
-      //set value and range
-      if ( Number( inputValue ) === 0 ) {
-        input.value = '';
+      if ( !valuesArray[0]) {
+        valuesArray[0] = String( inputArray[0].value ).deformat();
       } else {
-        input.value = Number( inputValue ).format();
+
+        //only digits
+        valuesArray[0] = 1 * String( valuesArray[0]).split( /\D/g ).join('');
+        //min
+        if ( valuesArray[0] < min || valuesArray[0] > String( inputArray[1].value ).deformat() ) {
+          valuesArray[0] = min;
+        }
+
       }
-      $range.slider( "value", inputValue );
+
+      if ( !valuesArray[1]) {
+        valuesArray[1] = String( inputArray[1].value ).deformat();
+      } else {
+
+        //only digits
+        valuesArray[1] = 1 * String( valuesArray[1]).split( /\D/g ).join('');
+        //max
+        if ( valuesArray[1] > max || valuesArray[1] < String( inputArray[0].value ).deformat() ) {
+          valuesArray[1] = max;
+        }
+        
+
+      }
+      
+      
+      valuesArray.forEach( function( value, index ) {
+
+        if ( !value ) {
+          return;
+        }
+
+        //set value
+        if ( Number( value ) === 0 ) {
+          inputArray[ index ].value = '';
+        } else {
+          inputArray[ index ].value = Number( value ).format();
+        }
+
+        //and range
+        $range.slider( "values", valuesArray );
+
+      });
+
+      
 
     }
-
-    //sliders
-    var $squareRange = $( '.b-filter__square-range' ),
-        squareMin = $squareRange.data( 'min' ),
-        squareMax = $squareRange.data( 'max' ),
-        $squareInputMin = $( '.b-filter__square-min' ),
-        $squareInputMax = $( '.b-filter__square-max' );
-
-    var $priceRange = $( '.b-filter__price-range' ),
-        priceMin = $priceRange.data( 'min' ),
-        priceMax = $priceRange.data( 'max' ),
-        $priceInputMin = $( '.b-filter__price-min' ),
-        $priceInputMax = $( '.b-filter__price-max' );
     
-    $squareRange.slider({
-      range: true,
-      min: squareMin,
-      max: squareMax,
-      values: [ squareMin, squareMax ],
-      slide: function( event, ui ) {
-        $squareInputMin.val( ui.values[0] );
-        $squareInputMax.val( ui.values[1] );
+    function setPageOpacity() {
+
+      if ( document.querySelector( 'body' ).getAttribute( 'class' ) && document.querySelector( 'body' ).getAttribute( 'class' ).search( 'opacity' ) !== -1 ) {
+        return;
       }
-    });
-    
-    $priceRange.slider({
-      range: true,
-      min: priceMin,
-      max: priceMax,
-      values: [ priceMin, priceMax ],
-      slide: function( event, ui ) {
-        $priceInputMin.val( ui.values[0] );
-        $priceInputMax.val( ui.values[1] );
+      
+      document.querySelector( 'body' ).classList.add( 'opacity' );
+
+      setClear( document.querySelector( '.b-filter' ));
+
+      function setClear( elem ) {
+        if ( elem.getAttribute( 'class' ).search( 'b-page-content' ) !== -1 || elem.tagName.toLowerCase === 'body' ) {
+          return;
+        }
+        elem.classList.add( 'opacity-clear' );
+        setClear( elem.parentNode );
       }
-    });
+    }
 
-    $( '.b-filter__square, .b-filter__price' ).find( 'input[ type=text ]')
-    .keydown( function(e) {
-      if ( e.which === 13 ) {
-        $( this ).blur().focus();
-        return false;
+    function removePageOpacity() {
+      if ( document.querySelector( 'body' ).getAttribute( 'class' ) && document.querySelector( 'body' ).getAttribute( 'class' ).search( 'opacity' ) === -1 ) {
+        return;
       }
-    })
-    .keyup( function(e) {
-      if ( e.which === 13 ) {
-        $( this ).blur().focus();
-        return false;
-      }
-    });
+      
+      document.querySelector( 'body' ).classList.remove( 'opacity' );
 
-    $squareInputMin.blur( function(e) {
-      if ( e.which === '13' ) {
-        e.stopPropagation();
-        e.preventDefault();
-      }
-      var inputValue = $( this ).val();
-      if ( inputValue < squareMin) {
-
-        inputValue = squareMin;
-        $( this ).val( inputValue );
-
-      } else if ( inputValue > $squareRange.slider( "values", 1 )) {
-
-        inputValue = $squareRange.slider( "values", 1 );
-        $( this ).val( inputValue );
-
-      }
-      $squareRange.slider( "values", 0, inputValue);
-    });
-
-    $squareInputMax.blur( function(e) {
-      if ( e.which === '13' ) {
-        e.stopPropagation();
-        e.preventDefault();
-      }
-      var inputValue = $( this ).val();
-      if ( inputValue > squareMax) {
-
-        inputValue = squareMax;
-        $( this ).val( inputValue );
-
-      } else if ( inputValue < $squareRange.slider( "values", 0 )) {
-
-        inputValue = $squareRange.slider( "values", 0 );
-        $( this ).val( inputValue );
-
-      }
-      $squareRange.slider( "values", 1, inputValue);
-    });
-
-    $priceInputMin.blur( function(e) {
-      if ( e.which === '13' ) {
-        e.stopPropagation();
-        e.preventDefault();
-      }
-      var inputValue = $( this ).val();
-      if ( inputValue < squareMin) {
-
-        inputValue = squareMin;
-        $( this ).val( inputValue );
-
-      } else if ( inputValue > $priceRange.slider( "values", 1 )) {
-
-        inputValue = $priceRange.slider( "values", 1 );
-        $( this ).val( inputValue );
-
-      }
-      $priceRange.slider( "values", 0, inputValue);
-    });
-
-    $priceInputMax.blur( function(e) {
-      if ( e.which === '13' ) {
-        e.stopPropagation();
-        e.preventDefault();
-      }
-      var inputValue = $( this ).val();
-      if ( inputValue > squareMax) {
-
-        inputValue = squareMax;
-        $( this ).val( inputValue );
-
-      } else if ( inputValue < $priceRange.slider( "values", 0 )) {
-
-        inputValue = $priceRange.slider( "values", 0 );
-        $( this ).val( inputValue );
-
-      }
-      $priceRange.slider( "values", 1, inputValue);
-    });
+      document.querySelectorAll( '.opacity-clear' ).forEach( function( elem ) {
+        elem.classList.remove( 'opacity-clear' );
+      });
+    }
     
   });
 

@@ -19,6 +19,22 @@
         width 100%
         pointer-events none
         z-index 1
+
+
+.b-footer,
+.b-page-content > *,
+.b-filter-result
+  transition( opacity 1s ease )
+
+body.opacity
+
+  .b-footer,
+  .b-page-content > *,
+  .b-filter-result
+    opacity .8
+
+body.opacity .b-page-content .opacity-clear
+  opacity 1
   
 .b-filter
 
@@ -54,9 +70,12 @@
         &:hover
           border-color #eabeb4
 
+    .btn
+      min-width 200px
+
     .b-checkbox
       display inline-block
-      margin-right 6px
+      margin-right 2px
 
       label
         display inline-block
@@ -94,7 +113,7 @@
       margin-right 0
 
     &-fields
-      width 150px
+      width 110px
       height 50px
       padding 15px 0
       background-color $line-color
@@ -112,7 +131,7 @@
         line-height 20px
         font-size $11px
         text-align center
-        width 75px
+        width 55px
         background-color transparent
 
         @media( max-width 575px )
@@ -123,7 +142,7 @@
 
         &:first-child
           border-right 1px solid #bfbfbf
-          width 74px
+          width 54px
 
           @media( max-width 575px )
             width calc( 50% - 1px )
@@ -134,25 +153,26 @@
   &__price
 
     &-fields
-      width 200px
+      width 160px
 
       @media( max-width 575px )
         width 100%
 
       input[ type="text" ]
-        width 100px
+        width 80px
 
         @media( max-width 575px )
           width 50%
 
         &:first-child
-          width 99px
+          width 79px
 
           @media( max-width 575px )
             width calc( 50% - 1px )
 
   &__status,
-  &__complex
+  &__complex,
+  &__type
 
     select
       pointer-events none
@@ -163,7 +183,8 @@
     @media( max-width 575px )
       display block
 
-  &__complex
+  &__complex,
+  &__type
 
     @media( max-width 1199px )
       margin-right 30px
