@@ -32,6 +32,11 @@
   //Menu
   &__anchor-menu
     display block
+    opacity 0
+    transition( opacity .5s ease )
+
+    &.show
+      opacity 1
 
     a
       display inline-block

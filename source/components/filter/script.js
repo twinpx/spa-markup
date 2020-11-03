@@ -59,12 +59,13 @@
         dataType: "html",
         data: $form.serialize(),
         success: function( html ) {
+          removePageOpacity();
           if ( moreButtonFlag ) {
-            $filter.find( '.b-filter-result' ).append( html ).find( '.b-filter-result__block:last' ).slideDown();
+            $( '.b-filter-result' ).append( html ).find( '.b-filter-result__block:last' ).slideDown();
           } else {
-            $filter.find( '.b-filter-result' ).html( html ).find( '.b-filter-result__block:last' ).slideDown();
+            $( '.b-filter-result' ).html( html ).find( '.b-filter-result__block:last' ).slideDown();
           }
-          $filter.find( '.b-filter-result .b-filter-result__block:last .b-flat-card__img' ).lazyload();
+          $( '.b-filter-result .b-filter-result__block:last .b-flat-card__img' ).lazyload();
           moreButtonFlag = false;
         },
         error: function( a, b, c ) {
@@ -79,19 +80,17 @@
     });
 
     //more
-    if ( document.querySelector( '.b-filter-result__more' )) {
-      document.querySelector( '.b-filter-result__more' ).addEventListener( 'click', function(e) {
-        e.preventDefault();
+    $( '.b-filter-result' ).delegate( '.b-filter-result__more .btn', 'click', function(e) {
+      e.preventDefault();
 
-        //increase the page num
-        var page = 1 * document.querySelector( '.b-filter input[ name=page ]' ).value;
-        document.querySelector( '.b-filter input[ name=page ]' ).value = ++page;
+      //increase the page num
+      document.querySelector( '.b-filter input[ name=page ]' ).value = $( this ).data( 'page' );
+      $( this ).closest( '.b-filter-result__more' ).remove();
 
-        //download
-        moreButtonFlag = true;
-        document.querySelector( '.b-filter form' ).requestSubmit();
-      });
-    }
+      //download
+      moreButtonFlag = true;
+      document.querySelector( '.b-filter form' ).requestSubmit();
+    });
 
     Number.prototype.format = function(){
       return this.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");

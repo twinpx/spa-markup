@@ -21,7 +21,7 @@ else
 
     .ph-content
 
-      form( action="/components/projects.detail/ajax-response.html" method="GET" data-ajax="true" )
+      form( action="/components/filter/ajax-response.html" method="GET" data-ajax="true" )
 
         .b-filter__wrapper
 
@@ -105,16 +105,13 @@ else
 
           .b-filter__submit
             button.btn.btn-primary( type="submit" ) Подобрать
+            span( style="background-image: url( '/template/images/help.svg' );" )
 
       hr.hr--lg
 
-      .b-filter-result
-        include ../../components/projects.detail/ajax-response
+#b-filter_res.container-lg
 
-      .b-filter-result__more.text-center
-        
-        hr
-        
-        button.btn.btn-light() Еще
-              
+  .b-filter-result
+    include ../../components/filter/ajax-response
+                
 // end /components/filter/

@@ -5,6 +5,14 @@
   $( function() {
 
     //anchor menu
+    document.querySelectorAll( '.b-projects-detail__anchor-menu a' ).forEach( function( elem ) {
+      if ( !document.getElementById( elem.getAttribute( 'href' ).substring(1))) {
+        elem.parentNode.removeChild( elem );
+      }
+    });
+
+    document.querySelector( '.b-projects-detail__anchor-menu' ).classList.add( 'show' );
+
     $( '.b-projects-detail__anchor-menu a' ).click( function(e) {
       e.preventDefault();
       $( document ).scrollTo( $( $( this ).attr( 'href' )).offset().top - 100, 500);
