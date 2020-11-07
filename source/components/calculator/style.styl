@@ -92,6 +92,11 @@
   tbody
     
     tr
+      cursor pointer
+      transition( background-color .3s ease )
+      
+      &:hover
+        background-color #fcfcfc
 
       @media( max-width 575px )
         display flex
@@ -104,12 +109,16 @@
     vertical-align middle
     text-align left
     height 100px
+    white-space nowrap
 
     &:first-child
       border-left 1px solid #e5e5e5
+      padding-left 15px
+      width 40%
 
     &:last-child
       border-right 1px solid #e5e5e5
+      padding-right 15px
 
     @media( max-width 575px )
       height auto
@@ -127,10 +136,16 @@
         border-left 1px solid #e5e5e5
 
       &:nth-child(2),
-      &:nth-child(3)
+      &:nth-child(3),
+      &:nth-child(4)
         padding-top 5px
         padding-bottom 12px
-        width 50%
+        width calc( 100% / 3 )
+        
+    img
+      width 100%
+      max-width 300px
+      max-height 100px
 
   .ui-state-default,
   .ui-slider-handle .ui-state-default

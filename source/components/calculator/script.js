@@ -12,6 +12,12 @@
       return Number( this.toString().split( ' ' ).join(''));
     };
     
+    //tr click
+    $( '.b-calculator tbody tr' ).click( function(e) {
+      e.preventDefault();
+      window.location = document.querySelector( '.b-calculator .btn' ).getAttribute( 'href' );
+    });
+    
     var priceInput = document.querySelector( '.b-calculator__price input[ type=text ]' );
     var paymentInput = document.querySelector( '.b-calculator__payment input[ type=text ]' );
     var periodInput = document.querySelector( '.b-calculator__period input[ type=text ]' );
@@ -118,7 +124,7 @@
         var k = b / 12 / 100;
         var j = Math.pow((1 + k),i);
         var result = Math.round( h * k * j / (j - 1));
-        $( elem ).find( 'td:eq(2)' ).text( Number( result ).format() + " руб." );
+        $( elem ).find( 'td:eq(3)' ).text( Number( result ).format() + " руб." );
       });
     }
 
