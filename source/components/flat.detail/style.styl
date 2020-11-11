@@ -118,5 +118,21 @@
       background-repeat no-repeat
       background-position center
       background-size 20px
+      
+  &__print-img
+    display none
     
+@media print
+  
+  .b-flat-detail__buttons,
+  .b-flat-detail__hypothec,
+  .b-flat-detail__print-block,
+  .b-flat-detail__galleries-switch,
+  .swiper-container
+    display none !important
     
+  .b-flat-detail__print-img
+    display block
+    width 300px
+    height auto
+    margin 0 auto 50px

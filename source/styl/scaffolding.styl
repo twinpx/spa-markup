@@ -207,3 +207,23 @@
 
   .small
     font-size 9px
+    
+@media print
+  
+  .b-header
+    height 81px
+    
+  .header-fixed .b-header-fixed-wrapper
+    position static
+    top 0
+    
+  .header-fixed .b-header__logo img.d-sm-inline-block
+    display inline-block !important
+    
+  .header-fixed .b-header__logo img.d-sm-none
+    display none !important
+
+  .b-header__top,
+  .b-header__submenu,
+  .b-footer
+    display none !important
