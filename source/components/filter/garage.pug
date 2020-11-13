@@ -8,7 +8,11 @@ else
   
 style .ik_select_link_text:after{ background-image: url( '/template/images/arrow-drop-down.svg' ); }
 
-.b-filter-result
+.b-filter-result-block
+
+  .container-lg
+  
+    h2 Подбор нежилого помещения
 
   .container-lg
 
@@ -16,7 +20,6 @@ style .ik_select_link_text:after{ background-image: url( '/template/images/arrow
 
       .ph
 
-        .ph__item
         .ph__item
         .ph__item
         .ph__item
@@ -32,53 +35,15 @@ style .ik_select_link_text:after{ background-image: url( '/template/images/arrow
             input( type="hidden" name="limit" value="3" )
             input( type="hidden" name="page" value="1" )
 
-            .b-filter__complex
-              label Жилой комплекс
-              select( name="status" )
-                option( value="0" ) Все
-                option( value="1" ) Жилой комплекс
-                option( value="2" ) Восточный
-                option( value="3" ) Радужный
-                option( value="4" ) Лермонтовский
-                option( value="5" ) Малиновый ручей
-                option( value="6" ) Ракитня
-
-            hr.d-block.d-md-none
-
             .b-filter__type
-              label Тип жилья
+              label Тип помещения
               select( name="type" )
                 option( value="0" ) Все
-                option( value="1" ) Квартира
-                option( value="2" ) Апартаменты
-
+                option( value="1" ) Помещение свободного
+                option( value="2" ) Гараж
+                option( value="3" ) Офис
+                
             hr.d-block.d-md-none
-
-            .b-filter__rooms
-              label Кол-во комнат
-
-              .b-checkbox
-                label
-                  input( type="checkbox" name="ROOMS[]" value="studio" )
-                  span Студия
-              .b-checkbox
-                label
-                  input( type="checkbox" name="ROOMS[]" value="1" )
-                  span 1
-              .b-checkbox
-                label
-                  input( type="checkbox" name="ROOMS[]" value="2" )
-                  span 2
-              .b-checkbox
-                label
-                  input( type="checkbox" name="ROOMS[]" value="3" )
-                  span 3
-              .b-checkbox
-                label
-                  input( type="checkbox" name="ROOMS[]" value="4" disabled )
-                  span 4
-
-            hr.d-block.d-xl-none
 
             .b-filter__square
               label Площадь, м2
@@ -111,11 +76,11 @@ style .ik_select_link_text:after{ background-image: url( '/template/images/arrow
               button.btn.btn-primary( type="submit" ) Подобрать
               span( style="background-image: url( '/template/images/help.svg' );" )
 
-        hr.hr--lg
-
+      hr.hr--lg
+      
   .container-lg
 
     .b-filter-result
       include ../../components/filter/ajax-response
-                
+              
 // end /components/filter/

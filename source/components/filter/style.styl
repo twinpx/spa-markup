@@ -22,23 +22,36 @@
 
 
 .b-footer,
-.b-page-content > *
+.b-page-content > *,
+.b-filter-result-block.opacity-clear .b-filter-result,
+.b-header .container-lg
   transition( opacity 1s ease )
 
 body.opacity
 
   .b-footer,
-  .b-page-content > *
+  .b-page-content > *,
+  .b-filter-result-block.opacity-clear .b-filter-result,
+  .b-header .container-lg
     opacity .2
+    pointer-events none
 
-body.opacity .b-page-content .opacity-clear
-  opacity 1
+  .b-page-content
+    
+    .opacity-clear,
+    .b-header
+      opacity 1
 
-body.opacity .b-filter__submit span
+body.opacity .b-filter-result-block.opacity-clear .b-filter__submit span
   transition( opacity .5s ease 2s )
   opacity 1
   
 .b-filter
+  
+  form
+    
+    &.disabled
+      pointer-events none
 
   &__wrapper
     display flex
@@ -207,15 +220,12 @@ body.opacity .b-filter__submit span
         &:after
           content ''
           display block
-          width 9px
-          height 10px
-          border-right 2px solid #707070
-          border-bottom 2px solid #707070
-          transform( rotate(45deg))
-          transition( transform .3s ease )
+          width 16px
+          height 16px
           position absolute
-          top 20px
-          right 18px
+          top 16px
+          right 8px
+          background-bg()
           z-index 1
 
   .ui-widget

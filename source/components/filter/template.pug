@@ -5,93 +5,98 @@ if componentsArray
   - componentsArray[ componentsArray.length ] = 'filter'
 else
   - var componentsArray = [ 'filter' ]
+  
+style .ik_select_link_text:after{ background-image: url( '/template/images/arrow-drop-down.svg' ); }
 
-.container-lg
+.b-filter-result-block
 
-  .b-filter.ph-block
+  .container-lg
+  
+    h2 Подбор квартиры
 
-    .ph
+  .container-lg
 
-      .ph__item
-      .ph__item
-      .ph__item
-      .ph__item
-      .ph__item
+    .b-filter.ph-block
 
-    .ph-content
+      .ph
 
-      form( action="/components/projects.detail/ajax-response.html" method="GET" data-ajax="true" )
+        .ph__item
+        .ph__item
+        .ph__item
+        .ph__item
+        .ph__item
 
-        .b-filter__wrapper
+      .ph-content
 
-          input( type="hidden" name="limit" value="3" )
-          input( type="hidden" name="page" value="1" )
+        form( action="/components/filter/ajax-response.html" method="GET" data-ajax="true" )
 
-          .b-filter__rooms
-            label Кол-во комнат
+          .b-filter__wrapper
 
-            .b-checkbox
-              label
-                input( type="checkbox" name="ROOMS[]" value="studio" )
-                span Студия
-            .b-checkbox
-              label
-                input( type="checkbox" name="ROOMS[]" value="1" )
-                span 1
-            .b-checkbox
-              label
-                input( type="checkbox" name="ROOMS[]" value="2" )
-                span 2
-            .b-checkbox
-              label
-                input( type="checkbox" name="ROOMS[]" value="3" )
-                span 3
-            .b-checkbox
-              label
-                input( type="checkbox" name="ROOMS[]" value="4" disabled )
-                span 4
+            input( type="hidden" name="limit" value="3" )
+            input( type="hidden" name="page" value="1" )
 
-          hr.d-block.d-xl-none
+            .b-filter__rooms
+              label Кол-во комнат
 
-          .b-filter__square
-            label Площадь, м2
-            .b-filter__square-fields
-              input.b-filter__square-min( type="text" value="20" name="square-min" )
-              input.b-filter__square-max( type="text" value="150" name="square-max" )
-            .b-filter__square-range( data-min="20" data-max="150")
+              .b-checkbox
+                label
+                  input( type="checkbox" name="ROOMS[]" value="studio" )
+                  span Студия
+              .b-checkbox
+                label
+                  input( type="checkbox" name="ROOMS[]" value="1" )
+                  span 1
+              .b-checkbox
+                label
+                  input( type="checkbox" name="ROOMS[]" value="2" )
+                  span 2
+              .b-checkbox
+                label
+                  input( type="checkbox" name="ROOMS[]" value="3" )
+                  span 3
+              .b-checkbox
+                label
+                  input( type="checkbox" name="ROOMS[]" value="4" disabled )
+                  span 4
 
-          hr.d-block.d-sm-none
+            hr.d-block.d-xl-none
 
-          .b-filter__price
-            label Цена
-            .b-filter__price-fields
-              input.b-filter__price-min( type="text" value="1800000" name="price-min" )
-              input.b-filter__price-max( type="text" value="12000000" name="price-max" )
-            .b-filter__price-range( data-min="1800000" data-max="12000000")
+            .b-filter__square
+              label Площадь, м2
+              .b-filter__square-fields
+                input.b-filter__square-min( type="text" value="20" name="square-min" )
+                input.b-filter__square-max( type="text" value="150" name="square-max" )
+              .b-filter__square-range( data-min="20" data-max="150")
 
-          hr.d-block.d-md-none
+            hr.d-block.d-sm-none
 
-          .b-filter__status
-            label Стадия строительства
-            select( name="status" )
-              option( value="1" ) Строится
-              option( value="2" ) Построен
-              option( value="3" ) Сдан
+            .b-filter__price
+              label Цена
+              .b-filter__price-fields
+                input.b-filter__price-min( type="text" value="1800000" name="price-min" )
+                input.b-filter__price-max( type="text" value="12000000" name="price-max" )
+              .b-filter__price-range( data-min="1800000" data-max="12000000")
 
-          hr.d-block.d-xl-none
+            hr.d-block.d-md-none
 
-          .b-filter__submit
-            button.btn.btn-primary( type="submit" ) Подобрать
+            .b-filter__status
+              label Стадия строительства
+              select( name="status" )
+                option( value="1" ) Строится
+                option( value="2" ) Построен
+                option( value="3" ) Сдан
 
-    hr.hr--lg
+            hr.d-block.d-xl-none
+
+            .b-filter__submit
+              button.btn.btn-primary( type="submit" ) Подобрать
+              span( style="background-image: url( '/template/images/help.svg' );" )
+
+      hr.hr--lg
+      
+  .container-lg
 
     .b-filter-result
       include ../../components/filter/ajax-response
-
-    .b-filter-result__more.text-center
-      
-      hr
-      
-      button.btn.btn-light() Еще
               
 // end /components/filter/
