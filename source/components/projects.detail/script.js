@@ -3,6 +3,34 @@
   'use strict';
   
   $( function() {
+    
+    //progress
+    var progressSlidesPerView = 3, progressSpaceBetween = 30;
+    if ( window.matchMedia( "(max-width: 400px)" ).matches ) {
+      progressSlidesPerView = 1;
+      progressSpaceBetween = 10;
+    } else if ( window.matchMedia( "(max-width: 700px)" ).matches ) {
+      progressSlidesPerView = 2;
+      progressSpaceBetween = 10;
+    }
+    var swiper = new Swiper('.b-projects-detail__progress .swiper-container', {
+      slidesPerView: progressSlidesPerView,
+      spaceBetween: progressSpaceBetween,
+      navigation: {
+        nextEl: '.swiper-arrow-right',
+        prevEl: '.swiper-arrow-left',
+      },
+      preloadImages: false,
+      lazy: {
+        loadPrevNext: true
+      },
+      watchSlidesVisibility: true,
+      on: {
+        init: function () {
+          $( '.b-shops' ).addClass( 'i-swiper-init' );
+        },
+      }
+    });
 
     //anchor menu
     document.querySelectorAll( '.b-projects-detail__anchor-menu a' ).forEach( function( elem ) {
