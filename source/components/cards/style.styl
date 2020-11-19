@@ -26,6 +26,12 @@
     display flex
     justify-content space-between
     align-items stretch
+    flex-wrap wrap
+    
+    &:after
+      content ''
+      width calc( (100% - 60px) / 3 )
+      height 0
 
     @media( max-width 767px )
       display block
