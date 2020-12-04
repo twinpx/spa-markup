@@ -32,11 +32,20 @@ hr.hr--xl.hr--line
 hr.hr--lg
 
 #filter
-  .container-lg
+      
+  .container-lg.text-right
+  
+    .b-switch
+      span Цены
+      span Шахматка
+      
+    hr
 
-    h2 Подбор квартиры
+  .b-filter-chess__tabs
 
-  include ../../components/filter/template
+    .b-filter-chess__tab
+      include ../../components/filter/template
+    .b-filter-chess__tab( data-url="/components/projects.detail/chess.html" data-method="GET" )
 
 hr.hr--xl.hr--line
 
