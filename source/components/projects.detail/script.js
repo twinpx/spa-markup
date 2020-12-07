@@ -5,55 +5,59 @@
   $( function() {
 
     //switch
-    document.querySelectorAll( '.b-switch span' ).forEach( function( elem, index ) {
-      if ( index === 0 ) {
-        elem.addEventListener( 'click', function() {
-          elem.parentNode.classList.remove( 'inverse' );
-          document.querySelector( '.b-filter-chess__tabs' ).classList.remove( 'inverse' );
-        });
-      } else {
-        elem.addEventListener( 'click', function() {
-          elem.parentNode.classList.add( 'inverse' );
-          document.querySelector( '.b-filter-chess__tabs' ).classList.add( 'inverse' );
-          
-          //load chess
-          if ( !document.querySelector( '.b-filter-chess__tabs .b-chess' )) {
-            var tab = document.querySelector( '.b-filter-chess__tab[ data-url ]' );
-            $.ajax({
-              url: tab.getAttribute( 'data-url' ),
-              type: tab.getAttribute( 'data-method' ),//GET
-              dataType: "html",
-              success: function( html ) {
-                if ( html ) {
-                  tab.innerHTML = html;
+    document.querySelectorAll( '.b-switch-block' ).forEach( function( switchBlock, index ) {
 
-                  //chess menu
-                  tab.querySelectorAll( '.b-chess-menu div' ).forEach( function( elem ) {
-                    elem.addEventListener( 'click', function(e) {
-                      tab.querySelectorAll( '.b-chess-menu div' ).forEach( function( item ) {
-                        item.classList.remove( 'active' );
+      switchBlock.querySelectorAll( '.b-switch span' ).forEach( function( elem, index ) {
+        if ( index === 0 ) {
+          elem.addEventListener( 'click', function() {
+            elem.parentNode.classList.remove( 'inverse' );
+            switchBlock.querySelector( '.b-filter-chess__tabs' ).classList.remove( 'inverse' );
+          });
+        } else {
+          elem.addEventListener( 'click', function() {
+            elem.parentNode.classList.add( 'inverse' );
+            switchBlock.querySelector( '.b-filter-chess__tabs' ).classList.add( 'inverse' );
+            
+            //load chess
+            if ( !switchBlock.querySelector( '.b-filter-chess__tabs .b-chess' )) {
+              var tab = switchBlock.querySelector( '.b-filter-chess__tab[ data-url ]' );
+              $.ajax({
+                url: tab.getAttribute( 'data-url' ),
+                type: tab.getAttribute( 'data-method' ),//GET
+                dataType: "html",
+                success: function( html ) {
+                  if ( html ) {
+                    tab.innerHTML = html;
+
+                    //chess menu
+                    tab.querySelectorAll( '.b-chess-menu div' ).forEach( function( elem ) {
+                      elem.addEventListener( 'click', function(e) {
+                        tab.querySelectorAll( '.b-chess-menu div' ).forEach( function( item ) {
+                          item.classList.remove( 'active' );
+                        });
+                        tab.querySelectorAll( '.b-chess-table' ).forEach( function( item ) {
+                          item.classList.remove( 'active' );
+                        });
+                        elem.classList.add( 'active' );
+                        elem.closest( '.b-chess' ).querySelector( '.b-chess-table[data-tab="' + elem.getAttribute( 'data-tab' ) + '"]' ).classList.add( 'active' );
                       });
-                      tab.querySelectorAll( '.b-chess-table' ).forEach( function( item ) {
-                        item.classList.remove( 'active' );
-                      });
-                      elem.classList.add( 'active' );
-                      elem.closest( '.b-chess' ).querySelector( '.b-chess-table[data-tab="' + elem.getAttribute( 'data-tab' ) + '"]' ).classList.add( 'active' );
                     });
-                  });
+                  }
+                },
+                error: function( a, b, c ) {
+                  if( window.console ) {
+                    console.log(a);
+                    console.log(b);
+                    console.log(c);
+                  }
                 }
-              },
-              error: function( a, b, c ) {
-                if( window.console ) {
-                  console.log(a);
-                  console.log(b);
-                  console.log(c);
-                }
-              }
-            });
-          }
-          
-        });
-      }
+              });
+            }
+            
+          });
+        }
+      });
+
     });
     
     //progress

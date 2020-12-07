@@ -32,20 +32,40 @@ hr.hr--xl.hr--line
 hr.hr--lg
 
 #filter
-      
-  .container-lg.text-right
-  
-    .b-switch
-      span Цены
-      span Шахматка
-      
-    hr
 
-  .b-filter-chess__tabs
+  .b-switch-block
+      
+    .container-lg.text-right
+    
+      .b-switch
+        span Цены
+        span Шахматка
+        
+      hr
 
-    .b-filter-chess__tab
-      include ../../components/filter/template
-    .b-filter-chess__tab( data-url="/components/projects.detail/chess.html" data-method="GET" )
+    .b-filter-chess__tabs
+
+      .b-filter-chess__tab
+        include ../../components/filter/template
+      .b-filter-chess__tab( data-url="/components/projects.detail/chess.html" data-method="GET" )
+
+  hr.d-block.d-sm-none
+      
+  .b-switch-block
+
+    .container-lg.text-right
+    
+      .b-switch
+        span Цены
+        span Шахматка
+        
+      hr
+
+    .b-filter-chess__tabs
+
+      .b-filter-chess__tab
+        include ../../components/filter/template
+      .b-filter-chess__tab( data-url="/components/projects.detail/chess.html" data-method="GET" )
 
 hr.hr--xl.hr--line
 
