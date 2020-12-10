@@ -4,6 +4,16 @@
   
   $( function() {
 
+    //chess hint
+    $( document ).delegate( '.b-chess-table__flats a, .b-chess-table__flats span', 'mouseenter', function() {
+      var $elem = $( this );
+      var $block = $elem.closest( '.b-chess-block' );
+
+      if ( $elem.offset().left + ( 48 - 20 + 250 ) > $block.offset().left + $block.outerWidth()) {
+        $elem.find( '.b-chess-hint' ).addClass( 'left' );
+      }
+    });
+
     //switch
     document.querySelectorAll( '.b-switch-block' ).forEach( function( switchBlock, index ) {
 

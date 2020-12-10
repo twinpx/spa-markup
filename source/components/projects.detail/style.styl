@@ -349,6 +349,7 @@
     background-color $line-color
     border-radius 10px
     padding 30px
+    overflow hidden
     
     &__title
       display flex
@@ -450,11 +451,13 @@
             line-height 30px
             border-radius 5px
             
-          &:hover
-            
-            .b-chess-hint
-              pointer-events auto
-              opacity 1
+          @media( min-width 992px )
+
+            &:hover
+              
+              .b-chess-hint
+                pointer-events auto
+                opacity 1
 
         span
           background-color #fff
@@ -503,6 +506,13 @@
     opacity 0
     transition( opacity .3s ease )
     z-index 100
+
+    &.left
+      left auto
+      right calc( 100% - 20px )
+
+    @media( max-width 991px )
+      display none
     
     &__title
       font-size $16px
